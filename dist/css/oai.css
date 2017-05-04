@@ -2500,22 +2500,23 @@ html.is-loading .navbar {
 }
 
 .navbar {
-  /*-webkit-animation: lightspeed 3s 16 linear;*/
-  /*-o-animation: lightspeed 3s 16 linear;*/
-  /*animation: lightspeed 3s 16 linear;*/
-  background: -webkit-linear-gradient(90deg, #558b2f 10%, #33691e 90%);
-  /* Chrome 10+, Saf5.1+ */
-  background: -moz-linear-gradient(90deg, #558b2f 10%, #33691e 90%);
-  /* FF3.6+ */
-  background: -ms-linear-gradient(90deg, #558b2f 10%, #33691e 90%);
-  /* IE10 */
-  background: -o-linear-gradient(90deg, #558b2f 10%, #33691e 90%);
-  /* Opera 11.10+ */
-  background: linear-gradient(90deg, #558b2f 10%, #33691e 90%);
+  /*/!*-webkit-animation: lightspeed 3s 16 linear;*!/*/
+  /*/!*-o-animation: lightspeed 3s 16 linear;*!/*/
+  /*/!*animation: lightspeed 3s 16 linear;*!/*/
+  /*background: -webkit-linear-gradient(90deg, #558b2f 10%, #33691e 90%);*/
+  /*/!* Chrome 10+, Saf5.1+ *!/*/
+  /*background: -moz-linear-gradient(90deg, #558b2f 10%, #33691e 90%);*/
+  /*/!* FF3.6+ *!/*/
+  /*background: -ms-linear-gradient(90deg, #558b2f 10%, #33691e 90%);*/
+  /*/!* IE10 *!/*/
+  /*background: -o-linear-gradient(90deg, #558b2f 10%, #33691e 90%);*/
+  /*/!* Opera 11.10+ *!/*/
+  /*background: linear-gradient(90deg, #558b2f 10%, #33691e 90%);*/
   /* W3C */
-  background: none;
-  /*box-shadow: 0 1px 1em 2.25em #ffffff;*/
-  background-color: #ffffff;
+  /*background: none;*/
+  /*box-shadow: 0 1px 1em 2.25em #262626;*/
+  /*background-color: rgba(255,255,255,.1);*/
+  /*position: relative;*/
   min-height: 6em;
   padding: .875em 0 .625em;
   /*padding: 1.5em 0 0;*/

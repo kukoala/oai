@@ -1,0 +1,367 @@
+/*!
+ * Mowe Structure v0.5.0 (http://getvilla.org/)
+ * Copyright 2013-2015 Noibe Developers
+ * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
+*/
+
+.block {
+    float: left;
+    overflow-x: hidden;
+    padding: 1.5em 0 1.125em;
+    width: 100%;
+}
+
+.block .container > .about,
+.block > .about {
+    margin: 2.25em 0;
+}
+
+.block > h1,
+.block .container > h1,
+.block .about h1 {
+    font-weight: 400;
+}
+
+.block > .lead,
+.block .container > .lead,
+.block .about .lead {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.block > h1 + .lead,
+.block .container > h1 + .lead,
+.block .about h1 + .lead {
+    margin-top: 20px;
+}
+
+@media (min-width: 30em) {
+    .block {
+        padding: 2.25em 0 1.125em;
+        width: 100%;
+    }
+}
+
+@media (min-width: 43.75em) {
+    .block {
+        padding: 3.75em 0 1.5em;
+        width: 100%;
+    }
+}
+/*!
+ * Mowe Timeline v1.0.0 (http://getvilla.org/)
+ * Copyright 2013-2015 Noibe Developers
+ * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
+*/
+
+.timeline {
+	display: block;
+	float: left;
+	width: 100%;
+	margin-bottom: 100px;
+}
+
+.timeline .nav {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	margin: 20px auto 60px;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+}
+
+.timeline .nav li {
+	cursor: pointer;
+	border-style: solid;
+	border-width: 1px;
+	font-size: 1em;
+	padding: 15px 30px;
+	margin-left: -1px;
+}
+
+@media screen and (max-width: 480px) {
+	.timeline .nav li {
+		padding: 15px 15px;
+	}
+}
+
+.timeline .nav li:first-child {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.timeline .nav li:last-child {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.timeline .content {
+	display: block;
+	float: left;
+	width: 500%;
+}
+
+.timeline .content li {
+	min-height: 300px;
+	float: left;
+	padding: 30px 0;
+	width: 20%;
+}
+
+.timeline .content li p {
+	padding: 30px 60px;
+	text-align: center;
+}
+
+.timeline.slide-0 .content,
+.timeline.slide-1 .content,
+.timeline.slide-2 .content,
+.timeline.slide-3 .content,
+.timeline.slide-4 .content,
+.timeline.slide-5 .content,
+.timeline.slide-6 .content,
+.timeline.slide-7 .content,
+.timeline.slide-8 .content,
+.timeline.slide-9 .content {
+	transition: margin .4s linear .1s;
+}
+
+.timeline.slide-0 .content {
+	margin-left: 0;
+}
+
+.timeline.slide-1 .content {
+	margin-left: -100%;
+}
+
+.timeline.slide-2 .content {
+	margin-left: -200%;
+}
+
+.timeline.slide-3 .content {
+	margin-left: -300%;
+}
+
+.timeline.slide-4 .content {
+	margin-left: -400%;
+}
+
+.timeline.slide-5 .content {
+	margin-left: -500%;
+}
+
+.timeline.slide-6 .content {
+	margin-left: -600%;
+}
+
+.timeline.slide-7 .content {
+	margin-left: -700%;
+}
+
+.timeline.slide-8 .content {
+	margin-left: -800%;
+}
+
+.timeline.slide-9 .content {
+	margin-left: -900%;
+}
+/*!
+ * Mowe UI Helpers v0.5.0 (http://getvilla.org/)
+ * Copyright 2013-2015 Noibe Developers
+ * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
+*/
+
+/* Mowe Effects and Transitions */
+
+/* Fade */
+
+/* Fade-in */
+/* You can edit the attributes */
+.fade-in {
+    animation: fade-in 1s ease-in-out 0s 1;
+    -webkit-animation: fade-in 1s ease-in-out 0s 1;
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Fade-out */
+/* You can edit the attributes */
+.fade-out {
+    animation: fade-out 1s ease-in-out 0s 1;
+    -webkit-animation: fade-out 1s ease-in-out 0s 1;
+}
+
+@-webkit-keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+/*!
+ * Mowe WOW v1.0.0 (http://getvilla.org/)
+ * Copyright 2013-2015 Noibe Developers
+ * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
+*/
+
+.wow {
+    cursor: pointer;
+    float: left;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.wow:last-child {
+    margin-bottom: 100px;
+}
+
+.wow .wow-container {
+    margin-right: 0;
+    transition: all .2s linear;
+    width: 150%; /*MAIN MEASURE*/
+}
+
+.wow .img {
+    filter: grayscale(.8);
+    -webkit-filter: grayscale(.8);
+    padding: 15px 0;
+    transition: all .2s linear .1s;
+    width: 62%; /*IMG MEASURE*/
+    max-width: 978px;
+}
+
+.wow .text {
+    padding: 15px 0;
+    filter: none;
+    -webkit-filter: none;
+    transition: all .4s linear .4s;
+    width: 38%; /*TEXT MEASURE*/
+}
+
+.wow .left {
+    float: right;
+}
+
+.wow .right {
+    float: left;
+}
+
+.wow .left .img,
+.wow .left .text {
+    float: right;
+}
+
+.wow .left .img  img {
+    padding-right: 15px;
+}
+
+.wow .left .text * {
+    padding-left: 15px;
+}
+
+.wow .right .img,
+.wow .right .text {
+    float: left;
+}
+
+.wow .right .img img {
+    padding-left: 0;
+}
+
+.wow .right .text * {
+    padding-right: 15px;
+}
+
+
+.wow .text h1 {
+    font-size: 48px;
+    font-weight: 300;
+    text-align: left;
+}
+
+.wow .text p {
+    font-size: 18px;
+    line-height: 27px;
+    margin: 15px 0 10px;
+}
+
+.wow.show .right {
+    margin-left: -51%; /*MARGIN MEASURE*/
+    transition: all .3s linear;
+}
+
+.wow.show .left {
+    margin-right: -51%; /*MARGIN MEASURE*/
+    transition: all .3s linear;
+}
+
+.wow.show .text {
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    transition: all .3s linear;
+}
+
+.wow.show .img {
+    filter: none;
+    -webkit-filter: none;
+    transition: all .2s linear .4s;
+}
+
+@media (max-width: 420px) {
+    .wow .wow-container {
+        width: 170%; /*MAIN MEASURE*/
+    }
+
+    .wow .img {
+        width: 50%; /*IMG MEASURE*/
+    }
+
+    .wow .text {
+        width: 50%; /*TEXT MEASURE*/
+    }
+
+    .wow.show .right {
+        margin-left: -72%; /*MARGIN MEASURE*/
+    }
+
+    .wow.show .left {
+        margin-right: -72%; /*MARGIN MEASURE*/
+    }
+}

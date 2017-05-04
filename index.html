@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="lato is-loading">
+<meta charset="utf-8"/>
+<title>OAI Telecom | Conectando Pessoas</title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="dist/css/villa.min.css"/>
+<link rel="stylesheet" href="dist/css/mowe.css"/>
+<link rel="stylesheet" href="dist/css/oai.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<script>
+
+	var heroBackground = document.createElement('img');
+	heroBackground.src = 'dist/img/photo-1452457750107-cd084dce177d.jpeg';
+
+	heroBackground.addEventListener('load', function () {
+
+		setTimeout(function() {
+
+			document.documentElement.classList.remove('is-loading');
+
+		}, 600);
+
+	});
+
+</script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+
+	var map;
+	var zoomLevel = 10;
+
+	function buildMap() {
+
+		var centerPos = new google.maps.LatLng(-22.609642,-50.4577229);
+		function initialize() {
+			var mapOptions = {
+				center: centerPos,
+				disableDefaultUI: true,
+				scrollwheel: false,
+				zoom: zoomLevel,
+				zoomControl: true
+			};
+
+			map = new google.maps.Map( document.getElementById("map-canvas"), mapOptions );
+
+			var locations = [
+				['assis', -22.6518791,-50.4175902],
+//				['cnp', -22.6074217,-50.0168386],
+				['cmota', -22.7344256,-50.3902002],
+				['echapora', -22.429305,-50.2045585],
+				['ibirarema', -22.8148214,-50.0745476],
+				['nsparecida', -22.9652546,-50.2681337],
+				['nalexandria', -22.6879809,-50.2918808],
+				['obressane', -22.3164616,-50.2831488],
+				['palmital', -22.7858947,-50.2232455],
+				['platina', -22.6338278,-50.2050002]
+			];
+
+			var image = 'dist/img/icon.png';
+
+			var markers = [];
+
+			for (i = locations.length; i--; )
+				markers.push(new google.maps.Marker({
+					icon: image,
+					map: map,
+					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+					title: locations[i][0]
+				}));
+
+			var style = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f5f5f5"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#03a9f4"},{"visibility":"on"}]}];
+
+			map.setOptions({styles: style});
+
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+	};
+
+	buildMap();
+
+</script>
+
+<body class="navbar-fixed">
+
+<div class="navbar user-unselect">
+	<div class="wide container">
+
+		<header class="bg-sm">
+
+			<div class="item">
+
+				<style type="text/css">
+					.OaiLogoSymbol-green{fill:#CDDC37;}
+					.OaiLogoSymbol-blue{fill:#38A4DD;}
+					.OaiLogoType{fill:#212121;}
+				</style>
+
+				<a href="#" class="brand">
+
+					<svg version="1.1" id="OaiLogo" x="0px" y="0px" viewBox="194 640 1000 431.9" style="enable-background:new 194 640 1000 431.9;">
+
+						<g id="OaiLogoSymbol" class="OaiLogoSymbol">
+
+							<path id="OaiLogoSymbol-green" class="OaiLogoSymbol-green" d="M716.2,643c-1.1-0.7-1.2-2.3,0.7-3h26c79.8-0.4,294.3,109.5,319.1,205.1c3,12.3,12.5,24.1,17.7,37c0.4,1,25.4,58.6,25.4,69.6c0,4-6.5,8.5-8.5,12H1057c-11.7-39.3-30.9-78.8-66.1-119.4c-17.2-28.8-46.8-60.1-74.6-85.3c-29.2-26.5-58.8-38.8-92.8-65.8C786,669.2,749.3,652.2,716.2,643z M1075.6,881.8c0,0,5.5,11.7,0.8,1.9L1075.6,881.8z"/>
+							<path id="OaiLogoSymbol-blue" class="OaiLogoSymbol-blue" d="M1193.1,910.9c0.8-0.4,1.5,0.8,1.3,2.3l-9.6,16.6c-28.1,53.4-177.5,157.5-250,140.2c-9.3-2.4-20.6-0.2-31-1.3c-0.7-0.1-48.1-3.8-55.5-7.7c-2.7-1.4-3.3-7.4-5-9.9l14.1-26.5c44.6,12.6,75.2,1.3,128.4-7c32.4-7.7,64.6-12.6,95.3-32.8c21.5-9.7,46.7-21,59.8-32.2C1161.5,939.4,1179.4,925.3,1193.1,910.9z"/>
+
+						</g>
+
+						<g id="OaiLogoType" class="OaiLogoType">
+
+							<path id="OaiLogoType-title" class="OaiLogoType" d="M357.9,834.3c-40,0-82.3,28.6-82.3,76.8c0,4.6,32.6,79,58.4,79h25.8c38.4,0,69.3-46.1,69.3-75.7C429.1,879.3,408.6,834.3,357.9,834.3z M356.7,790.4c66.1,0,116.3,62.3,116.3,116.3c0,65.9-55.1,120.7-119.6,120.7c-49.7,0-121.7-61.7-121.7-113C231.7,851.9,298.3,790.4,356.7,790.4z M761.6,731.5c30.6,0.8,25.4,7,39.2,0.1v41h-39.3C759.6,758.8,759.6,745.3,761.6,731.5z M613.5,790.4c21.9,0,114.1,25.5,113.9,73.8v156.3H686V868c-0.1-36.2-66.8-40.3-77-40.3c-37.8,0-76.8,54.3-76.8,79c0,42.6,47,83.4,83.4,83.4c5.5,0,35.8-8.7,54.7-15.2v16c0.2,6.4-2.2,36.5-14.4,36.5h-80.6c-53.2,0-80.3-91.3-80.3-116.3C495,839.8,548.5,790.4,613.5,790.4z M762.1,799.5h36.6v221h-36.6V799.5z"/>
+							<path id="OaiLogoType-r" class="OaiLogoType" d="M197.5,800.3c0,10.8,8.7,19.4,19.5,19.4c10.8,0,19.4-8.7,19.4-19.4s-8.7-19.5-19.4-19.5S197.5,789.5,197.5,800.3z M193.5,800.3c0-12.9,10.5-23.5,23.5-23.5s23.4,10.5,23.4,23.5s-10.5,23.5-23.4,23.5C204.1,823.8,193.5,813.2,193.5,800.3z M222.6,793.4c0-0.8-0.1-1.6-0.4-2.2c-0.3-0.7-0.7-1.2-1.4-1.6c-0.6-0.4-1.3-0.7-2-0.8c-0.7-0.1-1.6-0.2-2.7-0.2h-4.6v11h3.9c1.3,0,2.3-0.1,3.2-0.4c0.9-0.2,1.6-0.6,2.3-1.2c0.6-0.5,1-1.1,1.3-1.9C222.4,795.4,222.6,794.5,222.6,793.4z M229.9,814.2h-5l-8-11.5h-5.5v11.5h-3.8v-28.9h8.1c1.8,0,3.2,0.1,4.4,0.4c1.1,0.2,2.2,0.6,3.1,1.2c1,0.7,1.9,1.5,2.5,2.5c0.6,1,0.9,2.3,0.9,3.8c0,2.1-0.5,3.9-1.6,5.3c-1,1.3-2.5,2.5-4.3,3.1L229.9,814.2z"/>
+
+						</g>
+
+					</svg>
+
+					<span class="slogan">conectando pessoas</span>
+
+				</a>
+
+			</div>
+
+			<button class="toggle light-green-800 font-white">
+
+				<svg version="1.1" id="bars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+					<g>
+						<line class="st0" x1="99.1" y1="182.2" x2="1000" y2="182.2"/>
+						<line class="st0" x1="99.1" y1="504.6" x2="1000" y2="504.6"/>
+						<line class="st0" x1="99.1" y1="817.8" x2="1000" y2="817.8"/>
+					</g>
+				</svg>
+
+			</button>
+
+		</header>
+
+		<footer>
+
+			<div class="menu bg-sm font-grey-500">
+				<div class="item">
+					<a href="#sobre" class="link hfont-grey-400">Sobre</a>
+				</div>
+				<div class="item">
+					<a href="#prices" class="link hfont-grey-400">Planos</a>
+				</div>
+				<div class="item">
+					<a href="#cidades" class="link hfont-grey-400">Cidades</a>
+				</div>
+				<div class="item">
+					<a href="#contato" class="link font-light-blue-a400 hfont-light-blue-a200">
+						<strong>Contato</strong>
+					</a>
+				</div>
+				<div class="item font-light-blue-a400">
+					<a id="webmail-button" href="https://oai.com.br/mail/" class="link link--button">
+						<strong>Webmail</strong>
+					</a>
+				</div>
+			</div>
+
+		</footer>
+
+	</div>
+
+</div>
+
+<div class="hero font-white">
+
+	<style scoped="scoped">
+
+		.hero-background {
+			background-image: url('dist/img/largePhotos/hero1.jpg');
+			background-position: center bottom;
+		}
+
+		.hero-overlay {
+			background: -webkit-linear-gradient(top, rgba(255,255,255,.6) 0%, rgba(255,255,255,.3) 4%, transparent 36%, rgba(0,0,0,0.48) 100%);
+			background: linear-gradient(to bottom, rgba(255,255,255,.6) 0%, rgba(255,255,255,.3) 4%, transparent 36%, rgba(0,0,0,0.48) 100%);
+		}
+
+	</style>
+
+	<div class="hero-background bg-cover">
+
+		<div class="hero-overlay"></div>
+
+	</div>
+
+	<div class="hero-inner">
+
+		<div class="full wide container flex flex-column flex-wrap justify-center">
+
+			<div class="welcome">
+
+				<h1>
+
+					<span><strong>OAI INTERNET</strong></span>
+
+				</h1>
+
+				<span class="horizontal-bar"></span>
+
+				<p class="">original, autêntico e interativo</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="WebmailScreen">
+
+	<div class="WebmailScreen-inner light-blue-a100"></div>
+
+</div>
+
+<h2 style="display: none">Sobre</h2>
+
+<div id="sobre" class="text grey-100 font-grey-800">
+
+	<div class="text-background text-background--intro">
+
+		<div class="text-background-wrapper">
+
+			<img src="dist/img/map_flat.png" alt="" />
+
+		</div>
+
+	</div>
+
+	<div class="container">
+
+		<div class="text-intro">
+
+			<h3 class="font-light-blue-a700">O que vem à sua cabeça quando você ouve a palavra Internet?</h3>
+
+			<p>Para muitos, informação, para outros, trabalho, diversão, cultura e conhecimento. Para nós da OAI, a internet aproxima pessoas e as coisas como nenhum outro meio de comunicação, derrubando fronteiras e barreiras, com a liberdade de criar, se expressar e aparecer para o mundo, revelando assim as maravilhas em pessoas comuns.</p>
+
+			<p>Com essa motivação, trabalhamos a cada dia, inovando e expandindo para atender nossos assinantes, com os serviços de acesso à internet banda larga Residencial, Rural e Corporativo, conectando o mundo e aproximando pessoas e as coisas.</p>
+
+		</div>
+
+	</div>
+
+</div>
+
+<span class="full-wide bg-cover photo" style="background-image: url('dist/img/largePhotos/TELETOWER-Final.jpg'); background-psosition: 100% bottom; height: 24em; width: 100%; float: left;"></span>
+
+<div class="text grey-50 font-grey-800">
+
+	<div class="container">
+
+		<div class="text-history">
+
+			<h3 class="font-light-blue-a700">Nossa história</h3>
+
+			<p>Fundada em 2004, a OAI atende a milhares de assinantes em todo o Brasil, fornecendo serviços ao mercado residencial, rural e corporativo, com um atendimento exclusivo e tecnologia de ponta.</p>
+			<p>Com constantes investimentos, a OAI amplia suas fronteiras a cada dia. Contamos com uma infraestrutura própria, provendo acesso à Internet Banda Larga e Telefonia IP, via Rádio, Cabo e Fibra Óptica (FTTx e Lan to Lan), nas cidades de Assis/SP, Cândido Mota/SP, Echaporã/SP, Ibirarema/SP, Nossa Senhora Aparecida/PR, Nova Alexandria/SP, Oscar Bressane/SP, Palmital/SP e Platina/SP no estado de São Paulo e ADSL para todo o Estado de São de Paulo.</p>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div id="prices" class="Block Prices light-blue-600 font-white">
+
+	<div id="planos" class="container">
+
+		<div class="about">
+
+			<h2>Conheça nossos Planos</h2>
+
+			<p class="lead">Para melhor atender nossos clientes, disponibilizamos planos de acesso adaptados a cada exigência e necessidade.</p>
+
+		</div>
+
+	</div>
+
+	<div class="wipe" id="prices-wipe">
+
+		<div class="PriceListFrame frame pricelist-palmital">
+
+			<div class="container wide">
+
+				<div class="PricelistSlide slide">
+
+					<ul class="PricelistNav nav">
+
+						<li class="PricelistNavItem">
+
+							<span>Residencial</span>
+
+						</li>
+						<li class="PricelistNavItem">
+
+							<span>Rural</span>
+
+						</li>
+						<li class="PricelistNavItem">
+
+							<span>Corporativo</span>
+
+						</li>
+
+					</ul>
+
+					<ul id="pricelist-content" class="PricelistFrameContent content">
+
+						<li class="Pricelist hidden-price" data-product-reference="residencial">
+
+							<ul class="PricelistContent">
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>2 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 2Mbps</span>
+									<span class="PricelistItem-description">Up: 600kbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>4 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 4Mbps</span>
+									<span class="PricelistItem-description">Up: 800kbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>6 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 6Mbps</span>
+									<span class="PricelistItem-description">Up: 1.2Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>8 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 8Mbps</span>
+									<span class="PricelistItem-description">Up: 1.6Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>10 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 10Mbps</span>
+									<span class="PricelistItem-description">Up: 2Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>12 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 12Mbps</span>
+									<span class="PricelistItem-description">Up: 2.4Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>15 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 15Mbps</span>
+									<span class="PricelistItem-description">Up: 3Mbps</span>
+								</li>
+							</ul>
+
+						</li>
+
+						<li class="Pricelist hidden-price" data-product-reference="rural">
+
+							<ul class="PricelistContent">
+
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>1 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 1Mbps</span>
+									<span class="PricelistItem-description">Up: 600kbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>2 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 2Mbps</span>
+									<span class="PricelistItem-description">Up: 600kbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>4 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 4Mbps</span>
+									<span class="PricelistItem-description">Up: 800kbps</span>
+								</li>
+
+							</ul>
+						</li>
+
+						<li class="Pricelist hidden-price" data-product-reference="empresarial">
+
+							<ul class="PricelistContent">
+
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>4 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 4Mbps</span>
+									<span class="PricelistItem-description">Up: 1.2Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>6 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 6Mbps</span>
+									<span class="PricelistItem-description">Up: 1.8Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>8 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 8Mbps</span>
+									<span class="PricelistItem-description">Up: 2.4Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>10 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 10Mbps</span>
+									<span class="PricelistItem-description">Up: 3Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>12 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 12Mbps</span>
+									<span class="PricelistItem-description">Up: 3.6Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>15 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 15Mbps</span>
+									<span class="PricelistItem-description">Up: 4.5Mbps</span>
+								</li>
+								<li class="PricelistItem">
+									<span class="PricelistItem-title">
+
+										<span>20 MB</span>
+
+									</span>
+									<span class="PricelistItem-description">Down: 20Mbps</span>
+									<span class="PricelistItem-description">Up: 6Mbps</span>
+								</li>
+
+							</ul>
+
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="PricesMore">
+
+		<a class="PricesMore-select-area">
+
+			<span>Entre em contato para obter planos exclusivos!</span>
+
+		</a>
+
+	</div>
+
+</div>
+
+<div class="text grey-50 font-grey-800">
+
+	<div class="container">
+
+		<div class="text-history">
+
+			<h2 class="font-light-blue-a700">Projetos Especiais</h2>
+
+			<p>Nossas soluções estão ligadas a expertise que adquirimos ao longo dos anos, atendendo a diversas empresas no segmento de telecomunicações. Altamente preparada, oferecemos soluções em planejamento e elaboração de projetos para construção, instalação e manutenção de redes e sistemas de telecomunicações em todo território nacional.</p>
+
+			<p>Contamos com uma equipe de profissionais capacitada para elaborar e implantar redes de fibra óptica (FTTx/FTTa/FTTh/L2L), metálica, canalizações subterrâneas e tecnologia ADSL. Serviços de infraestrutura de equipamentos como esteiramento, calhas, dutos e bastidores, instalação e testes de enlaces de rádio (faixa de 900 Mhz a 23 Ghz), modem óptico, switch, roteadores e ampliação de centrais telefônicas (IP), assim como engenharia de rádio frequência envolvendo equipamentos Wireless, CDMA, 3G, GSM e LTE, controle e operações integradas de Call Center IP, interligação de equipamentos de comunicação de dados, implantação de Backbone, anéis e troncos ópticos para ampliar a capacidade de tráfego das redes de transmissão.</p>
+
+		</div>
+
+	</div>
+
+</div>
+
+<article id="cidades" class="CitiesBlock Block grey-100 font-grey-800">
+
+	<h2 class="font-light-blue-a700">Cidades Atendidas</h2>
+
+	<p>A OAI possui infra estrutura moderna em várias cidades da região.<br/> Confira quais são elas:</p>
+
+	<div id="cities+" class="Cities">
+
+		<div class="Cities-background">
+
+			<div class="CitiesMap">
+
+				<div id="map-canvas" class="CitiesMap-canvas"></div>
+
+			</div>
+
+		</div>
+
+		<div class="Cities-inner">
+
+			<section class="CitiesList">
+
+				<ul class="CitiesList-menu">
+
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.661943" data-mapLng="-50.417596" data-mapzoom="14">Assis, SP</a>
+
+					</li>
+
+					<!--<li class="CitiesItem">-->
+
+					<!--<a class="CitiesItem-select-area" data-mapLat="-22.6074217" data-mapLng="-50.0168386">C. Novos Paulista</a>-->
+
+					<!--</li>-->
+
+					<li class="CitiesItem">
+
+					<a class="CitiesItem-select-area" data-mapLat="-22.7344256" data-mapLng="-50.3902002" data-mapzoom="15">Cândido Mota</a>
+
+					</li>
+
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.429305" data-mapLng="-50.2045585" data-mapzoom="15">Echaporã, SP</a>
+
+					</li>
+
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.8148214" data-mapLng="-50.0745476" data-mapzoom="14">Ibirarema, SP</a>
+
+					</li>
+
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.9652546" data-mapLng="-50.2681337" data-mapzoom="15">Nossa Sra Aparecida, PR</a>
+
+					</li>
+
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.6879809" data-mapLng="-50.2918808" data-mapzoom="15">Nova Alexandria, SP</a>
+
+					</li>
+
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.3164616" data-mapLng="-50.2831488" data-mapzoom="15">Oscar Bressane, SP</a>
+
+					</li>
+
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.7858947" data-mapLng="-50.2232455" data-mapzoom="15">Palmital, SP</a>
+
+					</li>
+
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.6338278" data-mapLng="-50.2050002" data-mapzoom="15">Platina, SP</a>
+
+					</li>
+					<li class="CitiesItem">
+
+						<a class="CitiesItem-select-area" data-mapLat="-22.609642" data-mapLng="-50.4577229" data-mapzoom="10">Todas as cidades</a>
+
+					</li>
+
+				</ul>
+
+			</section>
+
+		</div>
+
+	</div>
+
+	<section class="Offices">
+
+		<h3>Nossos Escritórios</h3>
+
+		<div class="OfficesList">
+
+			<div class="OfficeItem">
+
+				<header class="OfficeItem-header">
+
+					<span class="OfficeItem-icon icon-location"></span>
+
+					<h4 class="city-name flex">Assis</h4>
+
+				</header>
+
+				<div class="OfficeItem-content">
+
+					<p class="OfficeItem-address">Cap. Francisco R. Garcia, 153, Centro, 19800-130</p>
+
+					<a href="https://www.google.com/maps/dir//R.+Cap.+Francisco+Rodrigues+Garc%C3%ADa,+153+-+San+Fernando+Valley,+Assis+-+SP,+19800-390,+Brasil/@-22.6619179,-50.4197305,17z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x9495399b9b9cacbf:0xf893f342243a017a!2m2!1d-50.4175418!2d-22.6619179" class="OfficeItem-button">
+
+						<span class="icon-direction"></span>
+						<span>Como chegar</span>
+
+					</a>
+
+					<div class="OfficeItemTimetable">
+
+						<p>Seg à Sex 8 hs às 18 hs</p>
+						<p>Sábado 8 hs às 13 hs</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="OfficeItem">
+
+				<header class="OfficeItem-header">
+
+					<span class="OfficeItem-icon icon-location"></span>
+
+					<h4 class="city-name flex">Ibirarema</h4>
+
+				</header>
+
+				<div class="OfficeItem-content">
+
+					<p class="OfficeItem-address">Cap. Francisco R. Garcia, 153, Centro, 19800-130</p>
+
+					<a href="https://www.google.com/maps/dir//R.+Cap.+Francisco+Rodrigues+Garc%C3%ADa,+153+-+San+Fernando+Valley,+Assis+-+SP,+19800-390,+Brasil/@-22.6619179,-50.4197305,17z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x9495399b9b9cacbf:0xf893f342243a017a!2m2!1d-50.4175418!2d-22.6619179" class="OfficeItem-button">
+
+						<span class="icon-direction"></span>
+						<span>Como chegar</span>
+
+					</a>
+
+					<div class="OfficeItemTimetable">
+
+						<p>Seg à Sex 8 hs às 18 hs</p>
+						<p>Sábado 8 hs às 13 hs</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="OfficeItem">
+
+				<header class="OfficeItem-header">
+
+					<span class="OfficeItem-icon icon-location"></span>
+
+					<h4 class="city-name flex">Palmital</h4>
+
+				</header>
+
+				<div class="OfficeItem-content">
+
+					<p class="OfficeItem-address">Manoel Leão Rego, 108, Centro, 19970-000</p>
+
+					<a href="https://www.google.com/maps/dir//-22.7858815,-50.2231128/@-22.7870683,-50.2225335,17z/data=!4m2!4m1!3e0" class="OfficeItem-button">
+
+						<span class="icon-direction"></span>
+						<span>Como chegar</span>
+
+					</a>
+
+					<div class="OfficeItemTimetable">
+
+						<p>Seg à Sex 8 hs às 18 hs</p>
+						<p>Sábado 8 hs às 13 hs</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+</article>
+
+<div id="contato" class="Contact Block grey-50 font-grey-800 flex align-center flex-column">
+
+	<h2 class="font-light-blue-a700">Entre em contato</h2>
+
+	<style>
+
+		.contacts {
+			margin: 3em 0 4.5em;
+			max-width: 60em;
+			width: 100%;
+		}
+
+		.contacts .contact {
+			border-radius: 8px;
+			min-width: 14em;
+			margin: 0 0 1em;
+			padding: 1em 0;
+		}
+
+		.contacts .contact:hover {
+			background-color: #e0e0e0;
+			cursor: default;
+		}
+
+		.contacts .contact span {
+			margin: .375em 0;
+		}
+
+		.contacts .contact .icon:before {
+			border: solid 2px #039be5;
+			color: #039be5;
+			border-radius: 50%;
+			margin: .5em 0;
+			font-size: 1.5em;
+			padding: 16px;
+		}
+
+		.contacts .contact:hover .icon:before {
+			background-color: #039be5;
+			color: #ffffff;
+		}
+
+		.contacts .contact .email,
+		.contacts .contact .number {
+			font-size: 1.125em;
+			font-weight: 700;
+			margin-bottom: 1px;
+		}
+
+		.contacts .contact .title {
+			margin-top: 0;
+			font-size: .875em;
+		}
+
+	</style>
+
+	<section id="contact-methods" class="ContactMethods">
+
+		<nav class="ContactMethodsNav">
+
+			<ul class="ContactMethodsNav-list">
+
+				<li class="ContactMethodsNavItem">
+
+					<a href="#" class="ContactMethodsNavItem-select-area" data-target="contact-method-phone">
+
+						<span class="ContactMethodsNavItem-icon">
+
+							<span class="icon-phone"></span>
+
+						</span>
+
+						<span class="ContactMethodsNavItem-title">Telefone</span>
+
+					</a>
+
+				</li>
+
+				<li class="ContactMethodsNavItem">
+
+					<a href="#" class="ContactMethodsNavItem-select-area" data-target="contact-method-mobile">
+
+						<span class="ContactMethodsNavItem-icon">
+
+							<span class="icon-mobile"></span>
+
+						</span>
+
+						<span class="ContactMethodsNavItem-title">Celular</span>
+
+
+					</a>
+
+				</li>
+
+				<li class="ContactMethodsNavItem">
+
+					<a href="#" class="ContactMethodsNavItem-select-area" data-target="contact-method-message">
+
+						<span class="ContactMethodsNavItem-icon">
+
+							<span class="icon-mail"></span>
+
+						</span>
+
+						<span class="ContactMethodsNavItem-title">Mensagem</span>
+
+					</a>
+
+				</li>
+
+				<li class="ContactMethodsNavItem">
+
+					<a href="#" class="ContactMethodsNavItem-select-area" data-target="contact-method-mail">
+
+						<span class="ContactMethodsNavItem-icon">
+
+							<span class="icon-at">@</span>
+
+						</span>
+
+						<span class="ContactMethodsNavItem-title">E-mail</span>
+
+
+					</a>
+
+				</li>
+
+			</ul>
+
+		</nav>
+
+		<div class="ContactMethodsContent">
+
+			<div id="contact-method-phone" class="ContactMethods-item ContactMethods-item--phone is-active">
+
+				<div class="ContactPhone">
+
+					<h3 style="display: none">Por telefone:</h3>
+
+					<ul class="ContactPhone-list">
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-phone"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">18 3421 2000</span>
+								<span class="ContactPhoneItem-title"><strong>Assis</strong> e região</span>
+
+							</section>
+
+						</li>
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-phone"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">18 3351 9500</span>
+								<span class="ContactPhoneItem-title"><strong>Palmital</strong> e região</span>
+
+							</section>
+
+						</li>
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-phone"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">11 2626 3000</span>
+								<span class="ContactPhoneItem-title"><strong>São Paulo</strong> e região metropolitana</span>
+
+							</section>
+
+						</li>
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-phone"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">0800 722 7998</span>
+								<span class="ContactPhoneItem-title">Demais localidades</span>
+
+							</section>
+
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div id="contact-method-mobile" class="ContactMethods-item ContactMethods-mobile">
+
+				<div class="ContactPhone">
+
+					<h3 style="display: none">Por celular:</h3>
+
+					<ul class="ContactPhone-list">
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-mobile"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">18 9 9749 2000</span>
+								<span class="ContactPhoneItem-title">(Vivo)</span>
+
+							</section>
+
+						</li>
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-mobile"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">18 9 9677 9500</span>
+								<span class="ContactPhoneItem-title">(Vivo)</span>
+
+							</section>
+
+						</li>
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-mobile"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">14 9 9705 9500</span>
+								<span class="ContactPhoneItem-title">(Vivo)</span>
+
+							</section>
+
+						</li>
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-mobile"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">14 9 9670 9500</span>
+								<span class="ContactPhoneItem-title">(Vivo)</span>
+
+							</section>
+
+						</li>
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-mobile"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">18 9 8105 3300</span>
+								<span class="ContactPhoneItem-title">(Tim)</span>
+
+							</section>
+
+						</li>
+
+						<li class="ContactPhoneItem">
+
+							<header class="ContactPhoneItem-header">
+
+								<span class="icon icon-mobile"></span>
+
+							</header>
+
+							<section class="ContactPhoneItem-content">
+
+								<span class="ContactPhoneItem-number">18 9 9197 7676</span>
+								<span class="ContactPhoneItem-title">(Claro)</span>
+
+							</section>
+
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div id="contact-method-message" class="ContactMethods-item ContactMethods-item--message">
+
+				<div class="container flex flex-column align-center">
+
+					<h3>Enviar uma mensagem:</h3>
+
+					<form id="cForm" class="ContactForm flex flex-column">
+
+						<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
+
+							<div class="ContactForm-field ContactForm-field--name">
+								<input class="name-text" type="text" size="26" name="tNome" id="cName" maxlength="50"
+								       placeholder="Nome"
+								       title="Ops, o campo nome deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo nome deve ser preenchido corretamente :)"/>
+								<label class="name" for="cName">Nome</label>
+							</div>
+
+							<div class="ContactForm-field ContactForm-field--phone">
+								<input class="phone-text" type="text" size="26" name="tPhone" id="cPhone" maxlength="14"
+								       placeholder="Telefone"
+								       title="Ops, o campo telefone deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo telefone deve ser preenchido corretamente :)"/>
+								<label class="email" for="cEmail">Telefone</label>
+							</div>
+
+							<div class="ContactForm-field ContactForm-field--email">
+								<input class="email-text" type="email" size="26" name="tEmail" id="cEmail" maxlength="60"
+								       placeholder="E-mail"
+								       title="Ops, o campo deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo deve ser preenchido corretamente :)"/>
+								<label class="email" for="cEmail">Email</label>
+							</div>
+
+							<div class="ContactForm-field ContactForm-field--address">
+								<input class="phone-text" type="text" size="26" name="tAddress" id="cAddress" maxlength="90"
+								       placeholder="Endereço Completo"
+								       title="Ops, o campo deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo deve ser preenchido corretamente :)"/>
+								<label class="address" for="cAddress">Endereço</label>
+							</div>
+
+							<div class="ContactForm-field ContactForm-field--address">
+								<input class="phone-text" type="text" size="26" name="tCity" id="cCity" maxlength="25"
+								       placeholder="Cidade"
+								       title="Ops, o campo cidade deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo cidade deve ser preenchido corretamente :)"/>
+								<label class="city" for="cCity">Cidade</label>
+							</div>
+
+						</div>
+
+						<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
+
+							<div class="ContactForm-field ContactForm-field--message">
+								<textarea class="lato" name="tMensagem" id="cMessage" cols="36"
+									placeholder="Digite a sua mensagem"
+									title="Ops, o campo mensagem deve ser preenchido corretamente :)"
+									x-moz-errormessage="Ops, o campo mensagem deve ser preenchido corretamente :)"></textarea>
+								<label class="text-message" for="cMessage">Mensagem</label>
+							</div>
+
+							<div class="ContactFormFooter">
+
+								<div class="ContactFormStatus">
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--sending font-light-blue-a700">Enviando...</span>
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700">Enviado com sucesso!</span>
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700">Não foi possível enviar, verifique os campos e tente novamente</span>
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--fail font-red-a700">Houve algum problema, tentando novamente...</span>
+
+								</div>
+
+								<div class="ContactForm-field ContactForm-field--submit">
+
+									<input id="cSubmit" class="ContactForm-submit red-400" name="ir" type="submit" value="Enviar"/>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+			<div id="contact-method-mail" class="ContactMethods-item ContactMethods-item--email">
+
+				<a href="mailto:oai@oai.com.br">oai@oai.com.br</a>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<h4>Horários de atendimento presencial*</h4>
+
+	<style scoped="scoped">
+
+		.office-hours {
+			max-width: 36em;
+			width: 100%;
+		}
+
+		.office-hours .office-hour {
+			border: solid 2px #039be5;
+			border-radius: 8px;
+			padding: 1em;
+			margin: 1em 0;
+			min-width: 12em;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.office-hours .office-hour:hover {
+			background-color: #039be5;
+		}
+
+		.office-hours .office-hour span {
+			width: 100%;
+			text-align: center;
+		}
+
+		.office-hours .office-hour .days {
+			font-size: 2.5em;
+		}
+
+		.office-hours-ps {
+			font-size: .875em;
+		}
+
+	</style>
+
+	<div class="office-hours flex width-100 justify-around flex-wrap">
+		<div class="office-hour flex flex-column align-center hfont-white">
+			<span class="days">Seg/Sex</span>
+			<span class="hour">8 hs às 18 hs</span>
+		</div>
+		<div class="office-hour flex flex-column align-center hfont-white">
+			<span class="days">Sábado</span>
+			<span class="hour">8 hs às 13 hs</span>
+		</div>
+	</div>
+
+	<p class="office-hours-ps">*<em>Exceto domingos e feriados</em></p>
+
+</div>
+
+<style>
+
+	.homologation {
+		margin-top: .5em;
+		margin-bottom: .375em;
+	}
+
+</style>
+
+<footer class="Footer light-blue-900 font-white">
+
+	<div class="FooterAbout">
+
+		<figure class="Ratify">
+
+			<a href="http://www.anatel.gov.br/Portal/verificaDocumentos/documento.asp?null&filtro=1&documentoPath=222394.pdf" target="_blank">
+
+				<img src="dist/img/anatel.png">
+
+			</a>
+
+			<p>Homologação</p>
+
+		</figure>
+
+		<section class="FooterText">
+
+			<p>© 2004 - 2016 - OAI<span style="font-size: .75em; transform: translateY(-12px);">®</span> Telecom <br/><em>Todos os direitos reservados</em></p>
+
+			<p>Cap. Francisco R. Garcia, 153, Centro, <br/><strong>Assis</strong>, CEP 19800-130, Brasil</p>
+
+			<p>Nome da Rua em Ibirarema, 153, Centro, <br/><strong>Ibirarema</strong>, CEP 19800-130, Brasil</p>
+
+			<p>Manoel Leão Rego, 108, Centro, <br/><strong>Palmital</strong>, CEP 19970-000, Brasil</p>
+
+			<!--<section class="Social">
+
+				<a href="fa" class="SocialItem">
+					<span>Facebook</span>
+				</a>
+
+				<a href="" class="SocialItem">
+					<span>LinkedIn</span>
+				</a>
+
+			</section>-->
+
+		</section>
+
+	</div>
+
+	<div class="FinalSlogan">
+
+		<a href="." class="FinalSlogan-select-area">
+
+			<div id="footer-logo" class="FinalSlogan-logo FooterLogo"></div>
+
+			<span class="FinalSlogan-text">original, autêntico e interativo</span>
+
+		</a>
+			
+	</div>
+
+</footer>
+
+<script>
+
+	var Logo = document.getElementById('OaiLogo');
+
+	var FooterLogo = document.getElementById('footer-logo');
+
+	if (Logo && FooterLogo)
+		FooterLogo.appendChild(Logo.cloneNode(true));
+
+	var initDevFooter = function() {
+
+		var DevFooter = {};
+
+		DevFooter.viewport = document.createElement('div');
+		DevFooter.viewport.className = 'DevFooter';
+
+		DevFooter.anchor = {};
+		DevFooter.anchor.viewport = document.createElement('a');
+		DevFooter.anchor.viewport.href = 'http://kabanas.info';
+		DevFooter.anchor.viewport.className = 'DevFooter-select-area';
+
+		DevFooter.text = {};
+		DevFooter.text.viewport = document.createElement('span');
+		DevFooter.text.viewport.innerHTML = "Criado por <strong>Kabana's Info & Mowe</strong>";
+
+		DevFooter.anchor.viewport.appendChild(DevFooter.text.viewport);
+
+		DevFooter.viewport.appendChild(DevFooter.anchor.viewport);
+
+		document.body.appendChild(DevFooter.viewport);
+
+	};
+
+	initDevFooter();
+
+</script>
+
+<script>
+
+	var webmailButton = document.getElementById('webmail-button');
+
+	webmailButton.addEventListener('click', function(ev) {
+
+//		ev.preventDefault();
+
+	}, false);
+
+	var cities = document.querySelectorAll('.CitiesItem-select-area');
+
+	for (var i  = cities.length; i--; )
+		cities[i].addEventListener('click', function() {
+
+			var lat = parseFloat(this.dataset.maplat) || false;
+			var lng = parseFloat(this.dataset.maplng) || false;
+			var zoom = parseFloat(this.dataset.mapzoom) || false;
+
+			if (lat && lng)
+				map.setCenter(new google.maps.LatLng({lat: lat, lng: lng}));
+
+			map.setZoom(!!zoom ? zoom: 16);
+
+		});
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="dist/js/dist.min.js"></script>
+
+<script>
+
+	window.onload = function () {
+
+		var prices = $('#prices');
+
+		prices.find('.PricelistNavItem').distinct({
+			content: prices.find(".Pricelist"),
+			defaultClass: prices.attr("class"),
+			startName: "slide",
+			target: prices
+		});
+
+	};
+
+</script>
+
+<script>
+
+	var PricelistItem = (function() {
+
+		/**
+		 * PriceListItem constructor
+		 * @param viewport {element}
+		 * @constructor
+		 */
+		function PricelistItem(viewport) {
+
+			this.viewport = viewport;
+
+		}
+
+		/**
+		 * Add 'click' listener to anchor
+		 * @param listener {function}
+		 */
+		PricelistItem.prototype.addListener = function(listener) {
+
+			if (this.viewport.addEventListener)
+				this.viewport.addEventListener('click', listener, false);
+			else
+				this.viewport.attachEvent('onclick', listener);
+
+		};
+
+		return PricelistItem;
+
+	})();
+
+	var Pricelist = (function() {
+
+		/**
+		 * PriceList constructor
+		 * @param viewport {element}
+		 * @constructor
+		 */
+		function Pricelist(viewport) {
+
+			this.viewport = viewport;
+
+			this.pricelistItem = []
+
+			this.pricelistItemElements = this.viewport.querySelectorAll('.PricelistItem');
+
+			this.itemOnClick = function() {
+
+				console.log('do something');
+
+			};
+
+			if (this.pricelistItemElements.length)
+				this.init();
+
+		}
+
+		/**
+		 * Init the PricelistItem instances
+		 */
+		Pricelist.prototype.init = function() {
+
+			for (var i = this.pricelistItemElements.length; i--; ) {
+
+				var item = new PricelistItem(this.pricelistItemElements[i]);
+				item.addListener(this.itemOnClick);
+
+				this.pricelistItem.push(item);
+
+			}
+
+		};
+
+		return Pricelist;
+
+	})();
+
+	var PricelistContent = (function() {
+
+		/**
+		 * PriceListContent constructor
+		 * @param viewport {element}
+		 * @constructor
+		 */
+		function PricelistContent(viewport) {
+
+			this.viewport = viewport;
+
+			if (this.viewport)
+				this.pricelistElements = this.viewport.querySelectorAll('.Pricelist');
+
+			this.pricelist = [];
+
+			for (var i = this.pricelistElements.length; i--; )
+				this.pricelist.push(new Pricelist(this.pricelistElements[i]));
+
+		}
+
+		return PricelistContent;
+
+	})();
+
+	var pricelistContent = new PricelistContent(document.getElementById('pricelist-content'));
+
+</script>
+
+<script>
+
+	var ContactMethods = (function() {
+
+		function ContactMethods(viewport) {
+
+			var self = this
+
+			this.viewport = viewport;
+
+			this.navItems = [];
+
+			this.navItemOnClick = function(ev) {
+
+				ev.preventDefault();
+				self.setActive(this.targetMethod);
+
+			};
+
+		}
+
+		ContactMethods.prototype.setActive = function(activeElement) {
+
+			for (var i = this.navItems.length; i--; )
+				this.navItems[i].viewport.targetMethod.classList.remove('is-active');
+
+			activeElement.classList.add('is-active');
+
+		};
+
+		ContactMethods.prototype.loadNavItems = function() {
+
+			var elements = this.viewport.querySelectorAll('.ContactMethodsNavItem-select-area');
+
+			for (var i = elements.length; i--; ) {
+
+				elements[i].addEventListener('click', this.navItemOnClick, false);
+				elements[i].targetMethod = document.getElementById(elements[i].dataset.target) || false;
+
+				this.navItems.push({
+					viewport: elements[i],
+				});
+
+			}
+
+		};
+
+		ContactMethods.prototype.init = function() {
+
+			this.loadNavItems();
+
+		};
+
+		return ContactMethods;
+
+	})();
+
+	var contactMethods = new ContactMethods(document.getElementById('contact-methods'));
+	contactMethods.init();
+
+</script>
+
+<script>
+
+	var formSentCount = 0;
+	var formSentCountLimit = 2;
+
+	var requestURL = 'http://mailman.letsmowe.com/oai/';
+
+	var formLocked = false;
+
+	var form = {
+		viewport: document.getElementById('cForm')
+	};
+
+	form.fields = {};
+	form.sendButton = {};
+
+	form.fields.cName = document.getElementById('cName');
+	form.fields.cPhone = document.getElementById('cPhone');
+	form.fields.cEmail = document.getElementById('cEmail');
+	form.fields.cAddress = document.getElementById('cAddress');
+	form.fields.cCity = document.getElementById('cCity');
+	form.fields.cMessage = document.getElementById('cMessage');
+
+	form.sendButton.viewport = document.getElementById('cSubmit');
+
+	form.states = [
+		'is-error',
+		'is-fail',
+		'is-sending',
+		'is-success'
+	];
+
+	form.changeState = function (state) {
+
+		if (form.viewport) {
+
+			for (var i = form.states.length; i--; )
+				form.viewport.classList.remove(form.states[i])
+
+			form.viewport.classList.add(state);
+
+		}
+
+	};
+
+	// send the ajax request
+	form.sendRequest = function(requestData) {
+
+		if (requestData) {
+
+			// ajax request
+			$.ajax({
+				cache: false,
+				crossDomain: true,
+				data: requestData,
+				method: 'get',
+				beforeSend: function() {
+
+					formLocked = true;
+					form.changeState('is-sending');
+
+				},
+				error: function (data) {
+
+					console.log(data);
+
+					form.changeState('is-fail');
+					form.send(requestData, 5000);
+
+				},
+				success: function (data) {
+
+					console.log(data);
+
+					if (data.sent)
+						form.changeState('is-success');
+					else
+						form.changeState('is-error');
+
+					formLocked = false;
+
+				},
+				timeout: 12000,
+				url: requestURL
+			});
+
+		}
+
+	};
+
+	// control the time delay to init the ajax request
+	form.send = function(requestData, delay) {
+
+		if (requestData) {
+
+			if (delay) {
+
+				setTimeout(function() {
+
+					form.sendRequest(requestData);
+
+				}, delay)
+
+			} else {
+
+			form.sendRequest(requestData);
+
+			}
+
+		}
+
+	};
+
+	// form submit button listener
+	form.sendButton.viewport.addEventListener('click', function (ev) {
+
+		ev.preventDefault();
+
+		if (!formLocked) {
+
+			if (formSentCount < formSentCountLimit) {
+
+				var allow = !!(form.fields.cName.value && (form.fields.cPhone.value || form.fields.cEmail.value) && (form.fields.cAddress.value || form.fields.cCity.value) && form.fields.cMessage.value);
+
+				if (allow) {
+
+					// lock the form
+					formLocked = true;
+
+					// count the request
+					formSentCount++;
+
+					// get object data
+					var requestData = {
+						cName: form.fields.cName.value,
+						cPhone: form.fields.cPhone.value,
+						cEmail: form.fields.cEmail.value,
+						cAddress: form.fields.cAddress.value,
+						cCity: form.fields.cCity.value,
+						cMessage: form.fields.cMessage.value
+					};
+
+					// send
+					form.send(requestData, false);
+
+
+				} else {
+
+					form.changeState('is-error');
+
+				}
+
+			}
+
+		}
+
+	});
+
+</script>
+
+</body>
+</html>

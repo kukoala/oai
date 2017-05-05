@@ -112,9 +112,9 @@
   -webkit-align-items: center;
   align-items: center;
   background-color: #f5f5f5;
-  border: solid 1px #039be5;
+  border: solid 1px #9c27b0;
   border-radius: 3px;
-  color: #039be5;
+  color: #9c27b0;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -126,7 +126,7 @@
 }
 
 .CitiesItem-select-area:hover {
-  background-color: #039be5;
+  background-color: #9c27b0;
   color: #ffffff;
 }
 
@@ -180,15 +180,15 @@
 }
 
 .OfficeItem-icon {
-  color: #bdbdbd;
+  color: #4a148c;
   font-size: 2.25em;
   line-height: 1.5;
 }
 
 .OfficeItem-button {
-  border: solid 1px #039be5;
+  border: solid 1px #9c27b0;
   border-radius: 3px;
-  color: #039be5;
+  color: #9c27b0;
   line-height: 2.25;
   margin-bottom: 1em;
   padding: .5em 1.5em;
@@ -197,10 +197,10 @@
 .OfficeItem-button:active,
 .OfficeItem-button:focus,
 .OfficeItem-button:hover {
-  background-color: #039be5;
-  -webkit-box-shadow: 0 0 .375em 1px rgba(3,155,229,.6);
-  -moz-box-shadow: 0 0 .375em 1px rgba(3,155,229,.6);
-  box-shadow: 0 0 .375em 1px rgba(3,155,229,.6);
+  background-color: #9c27b0;
+  -webkit-box-shadow: 0 0 .375em 1px rgba(186,104,200,.6);
+  -moz-box-shadow: 0 0 .375em 1px rgba(186,104,200,.6);
+  box-shadow: 0 0 .375em 1px rgba(186,104,200,.6);
   color: #ffffff;
 }
 
@@ -2240,7 +2240,7 @@ button::-moz-focus-inner {
   -moz-box-shadow: 0 0 .625em 3px rgba(255,255,255,.6);
   box-shadow: 0 0 .625em 3px rgba(255,255,255,.6);
   background-color: #ffffff;
-  color: #039be5;
+  color: #9c27b0;
 }
 
 @media (min-height: 48em) {
@@ -2537,7 +2537,7 @@ html.is-loading .navbar {
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  border-color: #00b0ff;
+  border-color: #7b1fa2;
   padding: 0 1em;
 }
 
@@ -2549,11 +2549,11 @@ html.is-loading .navbar {
 
 .navbar .item .link--button:active,
 .navbar .item .link--button:focus {
-  background-color: #0091ea;
+  background-color: #9c27b0;
 }
 
 .navbar .item .link--button:hover {
-  background-color: #00b0ff;
+  background-color: #9c27b0;
 }
 
 .navbar .item .link strong {
@@ -2764,7 +2764,7 @@ html.is-loading .navbar {
 }
 
 .text-background--intro img {
-  max-height: 16em;
+  max-height: 40em;
   margin: 0 0 6em;
 }
 

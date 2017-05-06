@@ -1,0 +1,222 @@
+
+/* Cities Block */
+
+.CitiesBlock {
+	min-height: 100vh;
+	padding: 4.5em 0;
+	width: 100%;
+}
+
+.CitiesBlock h2,
+.CitiesBlock h3,
+.CitiesBlock h4,
+.CitiesBlock p {
+	text-align: center;
+}
+
+.CitiesBlock h3 {
+	/*font-size: 3em;*/
+	font-weight: 300;
+}
+
+/* Cities */
+
+.Cities {
+	display: block;
+	position: relative;
+	height: 40em;
+	max-width: 72em;
+	width: 100%;
+	margin: 2.25em auto 3.75em;
+}
+
+.Cities-background,
+.Cities-inner {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.Cities-inner {
+	width: 18em;
+}
+
+.CitiesList,
+.CitiesMap {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* Cities List */
+
+.CitiesList {
+	background-color: rgba(245,245,245,1);
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	-ms-transition: background .3s;
+	-o-transition: background .3s;
+	transition: background .3s;
+}
+
+.Cities:hover .CitiesList {
+	background-color: rgba(245,245,245,.48);
+}
+
+.CitiesList h1,
+.CitiesList p {
+	display: none;
+}
+
+.CitiesList-menu {
+	height: 100%;
+	overflow-y: auto;
+	width: 100%;
+}
+
+/* Cities Map */
+
+.CitiesMap {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* Cities Map canvas */
+
+.CitiesMap-canvas {
+	height: 100%;
+	width: 100%;
+}
+
+/* Cities Item */
+
+.CitiesItem {
+	padding: .5em;
+	width: 100%;
+}
+
+.CitiesItem-select-area {
+	cursor: default;
+	-webkit-align-items: center;
+	align-items: center;
+	background-color: #f5f5f5;
+	border: solid 1px #9c27b0;
+	border-radius: 3px;
+	color: #9c27b0;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 3em;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.CitiesItem-select-area:hover {
+	background-color: #9c27b0;
+	color: #ffffff;
+}
+
+/* Offices */
+
+.Offices {
+	margin: 0 auto;
+	max-width: 48em;
+	width: 100%;
+}
+
+.OfficesList {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+
+.OfficeItem {
+	-webkit-align-items: stretch;
+	align-items: stretch;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	width: 16em;
+	min-height: 8em;
+	margin-bottom: 1.5em;
+}
+
+.OfficeItem h4 {
+	font-size: 1.5em;
+	font-weight: 400;
+	margin-bottom: .5em;
+}
+
+.OfficeItem p {
+	font-size: 1em;
+	line-height: 1.48;
+	margin-bottom: 1.125em;
+}
+
+.OfficeItem-icon {
+	color: #4a148c;
+	font-size: 2.25em;
+	line-height: 1.5;
+}
+
+.OfficeItem-button {
+	border: solid 1px #9c27b0;
+	border-radius: 3px;
+	color: #9c27b0;
+	line-height: 2.25;
+	margin-bottom: 1em;
+	padding: .5em 1.5em;
+}
+
+.OfficeItem-button:active,
+.OfficeItem-button:focus,
+.OfficeItem-button:hover {
+	background-color: #9c27b0;
+	-webkit-box-shadow: 0 0 .375em 1px rgba(186,104,200,.6);
+	-moz-box-shadow: 0 0 .375em 1px rgba(186,104,200,.6);
+	box-shadow: 0 0 .375em 1px rgba(186,104,200,.6);
+	color: #ffffff;
+}
+
+.OfficeItem-content,
+.OfficeItem-header {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+}
+
+.OfficeItemTimetable p {
+	color: #757575;
+	font-size: .875em;
+	line-height: 1.48;
+	margin: 0;
+}

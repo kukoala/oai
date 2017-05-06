@@ -1,0 +1,16 @@
+
+/* Final Slogan */
+
+.FinalSlogan {
+	margin: 1em 0;
+}
+
+.FinalSlogan-logo {
+	padding: 0 0 .5em;
+}
+
+.FinalSlogan span {
+	font-size: .75em;
+	font-weight: 900;
+	text-transform: uppercase;
+}

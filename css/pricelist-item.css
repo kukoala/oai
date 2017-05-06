@@ -1,0 +1,349 @@
+/* Pricelist Item */
+
+.PricelistItem {
+	-webkit-align-items: stretch;
+	align-items: stretch;
+	border-radius: 8px;
+	cursor: default;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	-webkit-justify-content: center;
+	justify-content: center;
+	max-width: 16em;
+	padding: 1.5em 1.5em 1em;
+	text-align: center;
+}
+
+.PricelistItem:hover {
+	background-color: #fafafa;
+	color: #424242;
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	-ms-transition: background .3s;
+	-o-transition: background .3s;
+	transition: background .3s;
+}
+
+.Prices.slide-1 .Pricelist:nth-child(1),
+.Prices.slide-2 .Pricelist:nth-child(2),
+.Prices.slide-3 .Pricelist:nth-child(3) {
+	opacity: 1;
+	transition: all 1s ease;
+}
+
+/* Pricelist Item media */
+
+@media (min-width: 48em) {
+
+	.PricelistItem {
+		padding: 1.125em 2.25em .875em;
+		max-width: 16em;
+	}
+
+}
+
+@media (min-width: 60em) {
+
+	.PricelistContent {
+		flex-wrap: nowrap;
+	}
+
+	.PricelistItem {
+		padding: 1.3125em 1.3125em 1em;
+		max-width: 16em;
+	}
+
+}
+
+@media (min-width: 72em) {
+
+	.PricelistItem {
+		padding: 1.5em 1.5em 1.125em;
+	}
+
+}
+
+/* Pricelist Item title */
+
+.PricelistItem-title {
+	border-bottom: solid 2px #e0e0e0;
+	margin: 0 0 1.125em;
+	padding: 0 0 1em;
+	text-transform: uppercase
+}
+
+.PricelistItem-title span {
+	font-size: 1.125em;
+}
+
+.Pricelist.hidden-price .PricelistItem-title span {
+	font-size: 2.25em
+}
+
+.PricelistItem:hover .PricelistItem-title,
+.PricelistItem.error .PricelistItem-title,
+.PricelistItem.success .PricelistItem-title {
+	border-color: #fafafa;
+}
+
+/* Pricelist Item description */
+
+.PricelistItem-description {
+	color: #e0e0e0;
+	font-size: .875em;
+	margin: 0 0 1em;
+}
+
+.PricelistItem:hover .PricelistItem-description,
+.PricelistItem.error .PricelistItem-description,
+.PricelistItem.success .PricelistItem-description {
+	color: #9e9e9e;
+}
+
+/* OLD CODE */
+
+.PricelistItem .price {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	min-width: 180px;
+}
+
+.PricelistItem .price .dollar {
+	font-size: 40px;
+	align-self: flex-start;
+}
+
+.PricelistItem .price .number {
+	font-size: 3.75em;
+	line-height: 1em;
+	align-self: center;
+}
+
+.PricelistItem .price .decimal {
+	align-self: flex-end;
+}
+
+.PricelistItem .action {
+	background-color: #00bfa5;
+	border: none;
+	border-radius: 25px;
+	font-size: 1em;
+	font-weight: 600;
+	color: #ffffff;
+	margin: 1em 0 .5em;
+	padding: 10px;
+	opacity: 0;
+	transition: none;
+}
+
+.PricelistItem input {
+	background-color: #eeeeee;
+	border: solid 2px #00bfa5;
+	border-radius: 2px;
+	color: #424242;
+	font-size: 1.125em;
+	font-weight: 300;
+	display: block;
+	margin-top: 1em;
+	padding: 8px 12px;
+}
+
+.PricelistItem:hover .action {
+	opacity: 1;
+	transition: none;
+}
+
+.PricelistItem .price {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	min-width: 180px
+}
+
+.PricelistItem .price .dollar {
+	font-size: 40px;
+	align-self: flex-start
+}
+
+.PricelistItem .price .number {
+	font-size: 3.75em;
+	line-height: 1em;
+	align-self: center
+}
+
+.PricelistItem .price .decimal {
+	align-self: flex-end
+}
+
+.PricelistItem .action {
+	background-color: #e0e0e0;
+	border: none;
+	border-radius: 25px;
+	font-size: 1em;
+	font-weight: 600;
+	color: #fff;
+	margin: 1em 0 .5em;
+	padding: 10px;
+	opacity: 0;
+	transition: none
+}
+
+.PricelistItem input {
+	background-color: #eee;
+	border: 2px solid #00bfa5;
+	border-radius: 2px;
+	color: #424242;
+	font-size: 1.125em;
+	font-weight: 300;
+	display: block;
+	margin-top: 1em;
+	padding: 8px 12px
+}
+
+.PricelistItem:hover .send {
+	opacity: 0;
+}
+
+.PricelistItem .contact {
+	display: flex;
+	flex-direction: column;
+}
+
+.PricelistItem input,
+.PricelistItem .response-send {
+	display: none;
+}
+
+.PricelistItem.active input,
+.PricelistItem.active .response-send {
+	display: block;
+	border-width: 2px;
+	margin-top: 1em;
+	padding: 8px 12px;
+	height: auto;
+	-webkit-transition: opacity .3s linear .15s;
+	-moz-transition: opacity .3s linear .15s;
+	-o-transition: opacity .3s linear .15s;
+	-ms-transition: opacity .43 linear .15s;
+	transition: opacity .3s linear .15s;
+}
+
+.PricelistItem.active .alert {
+	height: auto;
+	margin: 1em 0 .5em;
+	padding: 10px;
+	-webkit-transition: opacity .4s linear .35s;
+	-moz-transition: opacity .4s linear .35s;
+	-ms-transition: opacity .4s linear .35s;
+	-o-transition: opacity .4s linear .35s;
+	transition: opacity .4s linear .35s;
+}
+
+.PricelistItem .alert {
+	font-weight: 400;
+	height: 0;
+	padding: 0;
+	opacity: 0;
+	margin: 0;
+}
+
+.PricelistItem.success .alert,
+.PricelistItem.error .alert {
+	opacity: 1;
+	height: auto;
+	margin: 1em 0 .5em;
+	padding: 10px;
+}
+
+.PricelistItem.active .contact-form {
+	opacity: 1;
+}
+
+.PricelistItem.active,
+.PricelistItem.success,
+.PricelistItem.error {
+	color: #424242;
+	transition: background .3s linear;
+}
+
+.PricelistItem.active-form .PricelistItem-title {
+	border-color: #ffffff;
+}
+
+.PricelistItem.active-form [data-toggle=contact-form] {
+	opacity: 1;
+	background-color: #757575;
+	transition: background .3s linear;
+}
+
+.PricelistItem.success [data-toggle=contact-form],
+.PricelistItem.success .contact-form,
+.PricelistItem.error [data-toggle=contact-form],
+.PricelistItem.error .contact-form {
+	display: none;
+}
+
+.PricelistItem:hover .toggle-contact-form,
+.PricelistItem.active .toggle-contact-form,
+.PricelistItem.error .toggle-contact-form,
+.PricelistItem.success .toggle-contact-form {
+	opacity: 1;
+	transition: none;
+}
+
+/* Toggle button */
+
+.PricelistItem .toggle-contact-form:before {
+	content: 'Assine Já!';
+}
+
+.PricelistItem.request .toggle-contact-form:before {
+	content: 'Consulta!';
+}
+
+.PricelistItem.active .toggle-contact-form:before,
+.PricelistItem.success .toggle-contact-form:before {
+	content: 'Voltar';
+}
+
+.PricelistItem.error .toggle-contact-form:before {
+	content: 'Tentar novamente';
+}
+
+/* Submit Button */
+
+.PricelistItem .response-send:before {
+	content: 'Solicitar Contato';
+}
+
+.PricelistItem.active.sent .response-send:before {
+	content: 'Enviando...';
+}
+
+/* Submit Alert */
+
+.PricelistItem.error .alert:before {
+	content: 'Houve algum erro, tente novamente mais tarde!';
+}
+
+.PricelistItem.success .alert:before {
+	content: 'Obrigado! Logo entraremos em contato com você!';
+}
+
+.PricelistItem.error .alert {
+	color: #d50000;
+}
+
+.PricelistItem.success .alert {
+	color: #00bfa5;
+}

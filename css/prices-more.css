@@ -1,0 +1,48 @@
+
+/* Prices More button */
+
+.PricesMore {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	margin: 1em auto;
+	width: 100%;
+}
+
+.PricesMore-select-area {
+	border-radius: 4px;
+	border: solid 1px #ffffff;
+	cursor: pointer;
+	line-height: 3;
+	padding: 0 1.5em;
+}
+
+.PricesMore-select-area:active,
+.PricesMore-select-area:focus,
+.PricesMore-select-area:hover {
+	-webkit-box-shadow:0 0 .625em 3px rgba(255,255,255,.6);
+	-moz-box-shadow: 0 0 .625em 3px rgba(255,255,255,.6);
+	box-shadow: 0 0 .625em 3px rgba(255,255,255,.6);
+	background-color: #ffffff;
+	color: #9c27b0;
+}
+
+@media (min-height: 48em) {
+
+	.PricesMore {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+		margin: 3.75em auto 2.25em;
+		width: 100%;
+	}
+
+}

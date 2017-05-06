@@ -1,0 +1,22 @@
+
+/* Webmail Screen */
+
+.WebmailScreen {
+	display: none;
+	position: fixed;
+	height: 100%;
+	left: 0;
+	padding: 6em 0 0;
+	top: 0;
+	width: 100%;
+}
+
+.WebmailScreen.is-active {
+	display: block;
+}
+
+.WebmailScreen-inner {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}

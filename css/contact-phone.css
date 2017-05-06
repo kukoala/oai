@@ -1,0 +1,82 @@
+
+/* Contact Phone */
+
+.ContactPhone {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	width: 100%;
+}
+
+/* Contact Phone list */
+
+/* Contact Phone Item */
+
+.ContactPhoneItem {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	margin: 0 0 1em;
+}
+
+/* Contact Phone Item header */
+
+.ContactPhoneItem-header {
+	-webkit-align-items: center;
+	align-items: center;
+	background-color: #1e88e5;
+	border-bottom-left-radius: 8px;
+	border-top-left-radius: 8px;
+	color: #ffffff;
+	cursor: default;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 6em;
+	-webkit-justify-content: center;
+	justify-content: center;
+	width: 6em;
+}
+
+.ContactPhoneItem:hover .ContactPhoneItem-header {
+	background-color: #2196f3;
+}
+
+.ContactPhoneItem-header span {
+	font-size: 1.5em;
+}
+
+/* Contact Phone Item content */
+
+.ContactPhoneItem-content {
+	color: #616161;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	background-color: #eeeeee;
+	padding: 0 0 0 1.5em;
+	height: 6em;
+	width: 24em;
+}
+
+.ContactPhoneItem-number {
+	font-size: 1.5em;
+	font-weight: 600;
+	line-height: 1.48;
+}

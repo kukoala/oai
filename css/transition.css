@@ -1,0 +1,35 @@
+/* INITIAL TRANSITION */
+
+html.is-loading body {
+	overflow-y: hidden;
+}
+
+body {
+	overflow-y: auto;
+}
+
+html.is-loading .hero,
+html.is-loading .navbar {
+	opacity: 0;
+}
+
+.hero,
+.navbar {
+	opacity: 1;
+}
+
+.hero {
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+}
+
+.navbar {
+	-webkit-transition: opacity 1s .4s;
+	-moz-transition: opacity 1s .4s;
+	-ms-transition: opacity 1s .4s;
+	-o-transition: opacity 1s .4s;
+	transition: opacity 1s .4s;
+}

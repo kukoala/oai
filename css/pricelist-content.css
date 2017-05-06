@@ -1,0 +1,35 @@
+/* Pricelist Content */
+
+.PricelistContent {
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+
+
+.PricelistContent {
+	display: none;
+}
+
+.Prices.slide-1 .Pricelist:nth-child(1) .PricelistContent,
+.Prices.slide-2 .Pricelist:nth-child(2) .PricelistContent,
+.Prices.slide-3 .Pricelist:nth-child(3) .PricelistContent {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+}
+
+@media (min-width: 60em) {
+
+	.PricelistContent {
+		flex-wrap: nowrap;
+	}
+
+}

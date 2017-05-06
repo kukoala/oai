@@ -1,0 +1,28 @@
+
+/* Footer Logo */
+
+.FooterLogo svg {
+	/*margin-left: 3.2em;*/
+	/*max-width: 4.5em;*/
+	width: 100%;
+	height: auto;
+	max-height: 8em;
+}
+
+.FooterLogo .OaiLogoSymbol-blue,
+.FooterLogo .OaiLogoSymbol-green {
+	fill: #ffffff;
+	-webkit-transition: fill .3s;
+	-moz-transition: fill .3s;
+	-ms-transition: fill .3s;
+	-o-transition: fill .3s;
+	transition: fill .3s;
+}
+
+.FooterLogo .OaiLogoType {
+	display: none;
+}
+
+.FinalSlogan-select-area:hover .OaiLogoSymbol-green {
+	fill: #CDDC37;
+}

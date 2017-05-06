@@ -1,0 +1,35 @@
+/* Priceslist Nav */
+
+.PricelistNav {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+	margin: 30px auto 60px;
+}
+
+.PricelistNavItem {
+	border-width: 1px;
+	cursor: pointer;
+	font-size: 1em;
+	margin-left: -1px;
+	min-width: 10em;
+	padding: 1em 1.5em;
+	text-align: center;
+}
+
+.PricelistNavItem {
+	border-radius: 5px;
+}
+
+/* temporary use */
+.Prices.slide-1 .PricelistNavItem:nth-child(1),
+.Prices.slide-2 .PricelistNavItem:nth-child(2),
+.Prices.slide-3 .PricelistNavItem:nth-child(3) {
+	border-style: solid;
+}

@@ -1,0 +1,30 @@
+/* Prices */
+
+.Prices {
+	padding: 1em 0;
+}
+
+@media (min-height: 36em) {
+
+	.Prices {
+		padding: 2.25em 0 1em;
+	}
+
+}
+
+@media (min-height: 48em) {
+
+	.Prices {
+		padding: 4.5em 0 1em;
+	}
+
+}
+
+@media (min-height: 60em) {
+
+	.Prices {
+		padding: 6em 0 1em;
+	}
+
+}
+

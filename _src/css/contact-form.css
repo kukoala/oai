@@ -212,6 +212,8 @@
 }
 
 .ContactForm-field .ContactForm-submit {
+	background-color: #88229c;
+	border-radius: 3px;
 	color: #fff;
 	cursor: pointer;
 	border: none;

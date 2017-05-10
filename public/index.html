@@ -56,7 +56,7 @@
 //				['cnp', -22.6074217,-50.0168386],
 				['Cândido Mota', -22.7344256,-50.3902002],
 				['Echaporã', -22.429305,-50.2045585],
-				['Ibirarema', -22.8148214,-50.0745476],
+//				['Ibirarema', -22.8148214,-50.0745476],
 				['Nossa Sra Aparecida', -22.9652546,-50.2681337],
 				['Nova Alexandria', -22.6879809,-50.2918808],
 				['Oscar Bressane', -22.3164616,-50.2831488],
@@ -263,7 +263,7 @@
 			<h3 class="font-purple-700">Nossa história</h3>
 
 			<p>Fundada em 2004, a OAI atende a milhares de assinantes em todo o Brasil, fornecendo serviços ao mercado residencial, rural e corporativo, com um atendimento exclusivo e tecnologia de ponta.</p>
-			<p>Com constantes investimentos, a OAI amplia suas fronteiras a cada dia. Contamos com uma infraestrutura própria, provendo acesso à Internet Banda Larga e Telefonia IP, via Rádio, Cabo e Fibra Óptica (FTTx e Lan to Lan), nas cidades de Assis/SP, Cândido Mota/SP, Echaporã/SP, Ibirarema/SP, Nossa Senhora Aparecida/PR, Nova Alexandria/SP, Oscar Bressane/SP, Palmital/SP e Platina/SP no estado de São Paulo e ADSL para todo o Estado de São de Paulo.</p>
+			<p>Com constantes investimentos, a OAI amplia suas fronteiras a cada dia. Contamos com uma infraestrutura própria, provendo acesso à Internet Banda Larga e Telefonia IP, via Rádio, Cabo e Fibra Óptica (FTTx e Lan to Lan), nas cidades de Assis/SP, Cândido Mota/SP, Echaporã/SP, <!--Ibirarema/SP, -->Nossa Senhora Aparecida/PR, Nova Alexandria/SP, Oscar Bressane/SP, Palmital/SP e Platina/SP no estado de São Paulo e ADSL para todo o Estado de São de Paulo.</p>
 
 		</div>
 
@@ -271,9 +271,9 @@
 
 </div>
 
-<div id="prices" class="Block Prices purple-500 font-white">
+<div id="planos" class="Block Prices purple-500 font-white">
 
-	<div id="planos" class="container">
+	<div class="container">
 
 		<div class="about">
 
@@ -570,7 +570,7 @@
 
 					<li class="CitiesItem">
 
-						<a class="CitiesItem-select-area" data-mapLat="-22.7344256" data-mapLng="-50.3902002" data-mapzoom="15">Cândido Mota</a>
+						<a class="CitiesItem-select-area" data-mapLat="-22.7344256" data-mapLng="-50.3902002" data-mapzoom="15">Cândido Mota, SP</a>
 
 					</li>
 
@@ -579,13 +579,13 @@
 						<a class="CitiesItem-select-area" data-mapLat="-22.429305" data-mapLng="-50.2045585" data-mapzoom="15">Echaporã, SP</a>
 
 					</li>
-
+<!--
 					<li class="CitiesItem">
 
 						<a class="CitiesItem-select-area" data-mapLat="-22.8148214" data-mapLng="-50.0745476" data-mapzoom="14">Ibirarema, SP</a>
 
 					</li>
-
+-->
 					<li class="CitiesItem">
 
 						<a class="CitiesItem-select-area" data-mapLat="-22.9652546" data-mapLng="-50.2681337" data-mapzoom="15">Nossa Sra Aparecida, PR</a>
@@ -666,7 +666,7 @@
 				</div>
 
 			</div>
-
+<!--
 			<div class="OfficeItem">
 
 				<header class="OfficeItem-header">
@@ -679,9 +679,9 @@
 
 				<div class="OfficeItem-content">
 
-					<p class="OfficeItem-address">Cap. Francisco R. Garcia, 153, Centro, 19800-130</p>
+					<p class="OfficeItem-address">[INSERIR ENDEREÇO]</p>
 
-					<a href="https://www.google.com/maps/dir//R.+Cap.+Francisco+Rodrigues+Garc%C3%ADa,+153+-+San+Fernando+Valley,+Assis+-+SP,+19800-390,+Brasil/@-22.6619179,-50.4197305,17z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x9495399b9b9cacbf:0xf893f342243a017a!2m2!1d-50.4175418!2d-22.6619179" class="OfficeItem-button">
+					<a href="https://www.google.com/maps/dir//[INSERIR LINK MAPS]" class="OfficeItem-button">
 
 						<span class="icon-direction"></span>
 						<span>Como chegar</span>
@@ -698,7 +698,7 @@
 				</div>
 
 			</div>
-
+-->
 			<div class="OfficeItem">
 
 				<header class="OfficeItem-header">
@@ -1108,7 +1108,7 @@
 
 								<div class="ContactForm-field ContactForm-field--submit">
 
-									<input id="cSubmit" class="ContactForm-submit red-400" name="ir" type="submit" value="Enviar"/>
+									<input id="cSubmit" class="ContactForm-submit" name="ir" type="submit" value="Enviar"/>
 
 								</div>
 
@@ -1172,7 +1172,7 @@
 
 			<p>Cap. Francisco R. Garcia, 153, Centro, <br/><strong>Assis</strong>, CEP 19800-130, Brasil</p>
 
-			<p>Nome da Rua em Ibirarema, 153, Centro, <br/><strong>Ibirarema</strong>, CEP 19800-130, Brasil</p>
+			<!--<p>[INSERIR ENDEREÇO], <br/><strong>Ibirarema</strong>, CEP 19800-130, Brasil</p>-->
 
 			<p>Manoel Leão Rego, 108, Centro, <br/><strong>Palmital</strong>, CEP 19970-000, Brasil</p>
 
@@ -1184,83 +1184,14 @@
 
 </footer>
 
-<script>
-
-	var webmailButton = document.getElementById('webmail-button');
-
-	webmailButton.addEventListener('click', function(ev) {
-
-//		ev.preventDefault();
-
-	}, false);
-
-	var cities = document.querySelectorAll('.CitiesItem-select-area');
-
-	for (var i  = cities.length; i--; )
-		cities[i].addEventListener('click', function() {
-
-			var lat = parseFloat(this.dataset.maplat) || false;
-			var lng = parseFloat(this.dataset.maplng) || false;
-			var zoom = parseFloat(this.dataset.mapzoom) || false;
-
-			if (lat && lng)
-				map.setCenter(new google.maps.LatLng({lat: lat, lng: lng}));
-
-			map.setZoom(!!zoom ? zoom: 16);
-
-		});
-
-</script>
-
-
-
-<script>
-
-	function addEvent(el, ev, func) {
-		var list = [];
-		for (var i = 0; i < el.length; i++)
-			list[i] = (!el[i].attachEvent) ? el[i].addEventListener(ev, func, false) : el[i].attachEvent('on' + ev, func);
-		return list;
-	}
-
-	addEvent(
-		document.querySelectorAll('#toggle-mobile'),
-		'click',
-		function () {
-			var menu = document.getElementById('menu');
-			menu.classList.toggle('show');
-		}
-	);
-
-	addEvent(
-		document.querySelectorAll('#menu .item a'),
-		'click',
-		function () {
-			var menu = document.getElementById('menu').classList;
-			(menu.contains('show')) ? menu.remove('show') : false;
-		}
-	);
-
-	addEvent(
-		document.querySelectorAll('#cClient'),
-		'click',
-		function () {
-			var c = document.getElementById('cClient');
-			var f = document.getElementById('fCpf').classList;
-			(c.checked) ? f.add('is-true') : f.remove('is-true');
-		}
-	);
-
-</script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="dist/js/dist.min.js"></script>
+<script src="dist/js/oai.min.js"></script>
 
 <script>
 
 	window.onload = function () {
 
-		var prices = $('#prices');
+		var prices = $('#planos');
 
 		prices.find('.PricelistNavItem').distinct({
 			content: prices.find(".Pricelist"),
@@ -1271,352 +1202,6 @@
 
 	};
 
-</script>
-
-<script>
-
-	var PricelistItem = (function() {
-
-		/**
-		 * PriceListItem constructor
-		 * @param viewport {Element}
-		 * @constructor
-		 */
-		function PricelistItem(viewport) {
-
-			this.viewport = viewport;
-
-		}
-
-		/**
-		 * Add 'click' listener to anchor
-		 * @param listener {function}
-		 */
-		PricelistItem.prototype.addListener = function(listener) {
-
-			if (this.viewport.addEventListener)
-				this.viewport.addEventListener('click', listener, false);
-			else
-				this.viewport.attachEvent('onclick', listener);
-
-		};
-
-		return PricelistItem;
-
-	})();
-
-	var Pricelist = (function() {
-
-		/**
-		 * PriceList constructor
-		 * @param viewport {Element}
-		 * @constructor
-		 */
-		function Pricelist(viewport) {
-
-			this.viewport = viewport;
-
-			this.pricelistItem = [];
-
-			this.pricelistItemElements = this.viewport.querySelectorAll('.PricelistItem');
-
-			this.itemOnClick = function() {
-
-//				console.log('do something');
-
-			};
-
-			if (this.pricelistItemElements.length)
-				this.init();
-
-		}
-
-		/**
-		 * Init the PricelistItem instances
-		 */
-		Pricelist.prototype.init = function() {
-
-			for (var i = this.pricelistItemElements.length; i--; ) {
-
-				var item = new PricelistItem(this.pricelistItemElements[i]);
-				item.addListener(this.itemOnClick);
-
-				this.pricelistItem.push(item);
-
-			}
-
-		};
-
-		return Pricelist;
-
-	})();
-
-	var PricelistContent = (function() {
-
-		/**
-		 * PriceListContent constructor
-		 * @param viewport {Element}
-		 * @constructor
-		 */
-		function PricelistContent(viewport) {
-
-			this.viewport = viewport;
-
-			if (this.viewport)
-				this.pricelistElements = this.viewport.querySelectorAll('.Pricelist');
-
-			this.pricelist = [];
-
-			for (var i = this.pricelistElements.length; i--; )
-				this.pricelist.push(new Pricelist(this.pricelistElements[i]));
-
-		}
-
-		return PricelistContent;
-
-	})();
-
-	var pricelistContent = new PricelistContent(document.getElementById('pricelist-content'));
-
-</script>
-
-<script>
-
-	var ContactMethods = (function() {
-
-		function ContactMethods(viewport) {
-
-			var self = this;
-
-			this.viewport = viewport;
-
-			this.navItems = [];
-
-			this.navItemOnClick = function(ev) {
-
-				ev.preventDefault();
-				self.setActive(this.targetMethod);
-				self.setCurrent(this);
-
-			};
-
-		}
-
-		ContactMethods.prototype.setActive = function(activeElement) {
-
-			for (var i = this.navItems.length; i--; )
-				this.navItems[i].viewport.targetMethod.classList.remove('is-active');
-
-			activeElement.classList.add('is-active');
-
-		};
-
-		ContactMethods.prototype.setCurrent = function(currentElement) {
-
-			for (var i = this.navItems.length; i--; )
-				this.navItems[i].viewport.classList.remove('is-current');
-
-			currentElement.classList.add('is-current');
-
-		};
-
-		ContactMethods.prototype.loadNavItems = function() {
-
-			var elements = this.viewport.querySelectorAll('.ContactMethodsNavItem-select-area');
-
-			for (var i = elements.length; i--; ) {
-
-				elements[i].addEventListener('click', this.navItemOnClick, false);
-				elements[i].targetMethod = document.getElementById(elements[i].dataset.target) || false;
-
-				this.navItems.push({
-					viewport: elements[i]
-				});
-
-			}
-
-		};
-
-		ContactMethods.prototype.init = function() {
-
-			this.loadNavItems();
-
-		};
-
-		return ContactMethods;
-
-	})();
-
-	var contactMethods = new ContactMethods(document.getElementById('contact-methods'));
-	contactMethods.init();
-
-</script>
-
-<script>
-
-	var formSentCount = 0;
-	var formSentCountLimit = 2;
-
-	var requestURL = 'http://mailman.letsmowe.com/oai/';
-
-	var formLocked = false;
-
-	var form = {
-		viewport: document.getElementById('cForm')
-	};
-
-	form.fields = {};
-	form.sendButton = {};
-
-	form.fields.cName = document.getElementById('cName');
-	form.fields.cClient = document.getElementById('cClient');
-	form.fields.cCpf = document.getElementById('cCpf');
-	form.fields.cPhone = document.getElementById('cPhone');
-	form.fields.cEmail = document.getElementById('cEmail');
-	form.fields.cAddress = document.getElementById('cAddress');
-	form.fields.cCity = document.getElementById('cCity');
-	form.fields.cMessage = document.getElementById('cMessage');
-
-	form.sendButton.viewport = document.getElementById('cSubmit');
-
-	form.states = [
-		'is-error',
-		'is-fail',
-		'is-sending',
-		'is-success'
-	];
-
-	form.changeState = function (state) {
-
-		if (form.viewport) {
-
-			for (var i = form.states.length; i--; )
-				form.viewport.classList.remove(form.states[i])
-
-			form.viewport.classList.add(state);
-
-		}
-
-	};
-
-	// send the ajax request
-	form.sendRequest = function(requestData) {
-
-		if (requestData) {
-
-			// ajax request
-			$.ajax({
-				cache: false,
-				crossDomain: true,
-				data: requestData,
-				method: 'get',
-				beforeSend: function() {
-
-					formLocked = true;
-					form.changeState('is-sending');
-
-				},
-				error: function (data) {
-
-					console.log(data);
-
-					form.changeState('is-fail');
-					form.send(requestData, 5000);
-
-				},
-				success: function (data) {
-
-					console.log(data);
-
-					if (data.sent)
-						form.changeState('is-success');
-					else
-						form.changeState('is-error');
-
-					formLocked = false;
-
-				},
-				timeout: 12000,
-				url: requestURL
-			});
-
-		}
-
-	};
-
-	// control the time delay to init the ajax request
-	form.send = function(requestData, delay) {
-
-		if (requestData) {
-
-			if (delay) {
-
-				setTimeout(function() {
-
-					form.sendRequest(requestData);
-
-				}, delay)
-
-			} else {
-
-			form.sendRequest(requestData);
-
-			}
-
-		}
-
-	};
-
-	// form submit button listener
-	form.sendButton.viewport.addEventListener('click', function (ev) {
-
-		ev.preventDefault();
-
-		if (!formLocked) {
-
-			if (formSentCount < formSentCountLimit) {
-
-				var allow = !!(form.fields.cName.value && (form.fields.cPhone.value || form.fields.cEmail.value) && (form.fields.cAddress.value || form.fields.cCity.value) && form.fields.cMessage.value);
-
-				if (allow) {
-
-					// lock the form
-					formLocked = true;
-
-					// count the request
-					formSentCount++;
-
-					// get object data
-					var requestData = {
-						cName: form.fields.cName.value,
-						cPhone: form.fields.cPhone.value,
-						cEmail: form.fields.cEmail.value,
-						cAddress: form.fields.cAddress.value,
-						cCity: form.fields.cCity.value,
-						cMessage: form.fields.cMessage.value
-					};
-
-					// send
-					form.send(requestData, false);
-
-
-				} else {
-
-					form.changeState('is-error');
-
-				}
-
-			}
-
-		}
-
-	});
-
-</script>
-
-<!--Tawk.to Script-->
-<script type="text/javascript">
-	var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/591288d464f23d19a89b1743/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
 </script>
 
 </body>

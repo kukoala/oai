@@ -439,6 +439,8 @@
 }
 
 .ContactForm-field .ContactForm-submit {
+  background-color: #88229c;
+  border-radius: 3px;
   color: #fff;
   cursor: pointer;
   border: none;
@@ -1998,6 +2000,47 @@ button::-moz-focus-inner {
     align-content: flex-end;
   }
 }
+.d-none {
+  display: none;
+}
+
+.footer-trademark {
+  font-size: .75em;
+  transform: translateY(-12px);
+}
+
+.office-hours {
+  max-width: 36em;
+  width: 100%;
+}
+
+.office-hours .office-hour {
+  border: solid 2px #fff;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 1em 0;
+  min-width: 12em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.office-hours .office-hour:hover {
+  background-color: #fff;
+  color: #9c27b0;
+}
+
+.office-hours .office-hour span {
+  width: 100%;
+  text-align: center;
+}
+
+.office-hours .office-hour .days {
+  font-size: 2.5em;
+}
+
+.office-hours-ps {
+  font-size: .875em;
+}
 .PriceListFrame .container {
   max-width: 72em;
 }
@@ -3194,46 +3237,3 @@ body > footer .divisor {
 	[1] http://practicaltypography.com/line-spacing.html
 	[2] http://practicaltypography.com/space-between-paragraphs.html
 */
-/* From html, compilation */
-
-.d-none {
-  display: none;
-}
-
-.footer-trademark {
-  font-size: .75em;
-  transform: translateY(-12px);
-}
-
-.office-hours {
-  max-width: 36em;
-  width: 100%;
-}
-
-.office-hours .office-hour {
-  border: solid 2px #fff;
-  border-radius: 8px;
-  padding: 1em;
-  margin: 1em 0;
-  min-width: 12em;
-  text-align: center;
-  cursor: pointer;
-}
-
-.office-hours .office-hour:hover {
-  background-color: #fff;
-  color: #9c27b0;
-}
-
-.office-hours .office-hour span {
-  width: 100%;
-  text-align: center;
-}
-
-.office-hours .office-hour .days {
-  font-size: 2.5em;
-}
-
-.office-hours-ps {
-  font-size: .875em;
-}

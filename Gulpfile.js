@@ -1,11 +1,18 @@
+const _PROJECTNAME = 'oai';
+
 var gulp = require('gulp'),
-	concat = require('gulp-concat-css'),
-	jshint = require('gulp-jshint'),
-	minifycss = require('gulp-minify-css'),
+	watch = require('gulp-watch'),
+	batch = require('gulp-batch'),
+	print = require('gulp-print'),
+	plumber = require('gulp-plumber'),
+	concat = require('gulp-concat'),
+	concatCSS = require('gulp-concat-css'),
+	cleanCSS = require('gulp-clean-css'),
 	rename = require('gulp-rename'),
 	uglify = require('gulp-uglify'),
 	imageResize = require('gulp-image-resize'),
 	tinypng = require('gulp-tinypng'),
+
 	browserSync = require('browser-sync').create();
 
 /*
@@ -28,106 +35,142 @@ var gulp = require('gulp'),
 
 var tinypngToken = 'hHrU0V0DGG3tNna6R1sqNNOqqU-x1S4u';
 
+// Source Content structure
+
+var source = {
+	content: '*',
+	location: './_src/'
+};
+
+source.css = {
+	content: '**/*.css',
+	location: source.location + 'css/'
+};
+
+source.js = {
+	content: '*.js',
+	location: source.location + 'js/'
+};
+
+source.index = {
+	content: '**/*.html',
+	location: source.location
+};
+
+source.images = {
+	content: '*.*',
+	location: source.location + 'img/'
+};
+
+source.images.largePhotos = {
+	content: '*.*',
+	location: source.images.location + 'largePhotos/'
+};
+
+// Public Content structure
+
+var publi = {
+	location: './public/'
+};
+
+// Dist Content structure
+
 var dist = {
-	location: 'dist/'
+	content: '*',
+	location: publi.location + 'dist/'
 };
 
-var images = {
-	content: '*.*',
-	location: 'img/'
+dist.css = {
+	content: '*.css',
+	location: dist.location + 'css/'
 };
 
-images.largePhotos = {
-	content: '*.*',
-	location: images.location + 'largePhotos/'
+dist.js = {
+	content: '*.js',
+	location: dist.location + 'js/'
 };
 
-var cssfiles = 'css/*.css',
-	imgfiles = 'img/*',
-	jsfiles = 'js/*.js';
+// CSS
 
-imgfiles = 'img/*';
-
-gulp.task('oai', function() {
-	gulp.src(cssfiles)
-		.pipe(concat('oai.css'))
-		.pipe(gulp.dest('dist/css'));
-	gulp.src('dist/css/oai.css')
-		.pipe(minifycss())
+gulp.task('css', function() {
+	gulp.src(source.css.location + source.css.content)
+		.pipe(concatCSS(_PROJECTNAME + '.css'))
+		.pipe(gulp.dest(dist.css.location))
+		.pipe(plumber())
+		.pipe(cleanCSS())
 		.pipe(rename({
 			extname: '.min.css'
 		}))
-		.pipe(gulp.dest('dist/css'));
+		.pipe(gulp.dest(dist.css.location));
 });
 
-gulp.task('minifyCss', function () {
-	gulp.src('dist/css/oai.css')
-		.pipe(minifycss())
-		.pipe(rename({
-			extname: '.min.css'
-		}))
-		.pipe(gulp.dest('dist/css'));
+gulp.task('css-watch', ['css'], function () {
+	watch(source.css.location + source.css.content, batch(function (events, done) {
+		gulp.start('css', done);
+		browserSync.reload();
+	}));
 });
+
+// JS
 
 gulp.task('js', function() {
-	gulp.src(jsfiles)
-			.pipe(jshint())
-			.pipe(jshint.reporter('default'))
-			.pipe(gulp.dest('dist/js'));
-	gulp.src(['dist/js/dist.js'])
-			.pipe(rename({
-				extname: '.min.js'
-			}))
-			.pipe(uglify({
-				preserveComments: 'some'
-			}))
-			.pipe(gulp.dest('dist/js'));
+	gulp.src(source.js.location + source.js.content)
+		.pipe(concat(_PROJECTNAME + '.js'))
+		.pipe(gulp.dest(dist.js.location))
+		.pipe(plumber())
+		.pipe(uglify({
+			preserveComments: 'some'
+		}))
+		.pipe(rename({
+			extname: '.min.js'
+		}))
+		.pipe(gulp.dest(dist.js.location));
 });
 
-gulp.task('resizeLargePhotos', function () {
-	gulp.src(images.largePhotos.location + images.largePhotos.content)
+gulp.task('js-watch', ['js'], function () {
+	watch(source.js.location + source.js.content, batch(function (events, done) {
+		gulp.start('js', done);
+		browserSync.reload();
+	}));
+});
+
+// IMAGES
+
+gulp.task('resizePhotos', function () {
+	gulp.src(source.images.location + source.images.content)
 		.pipe(imageResize({
 			height : 960,
 			upscale : false
 		}))
-		.pipe(gulp.dest(dist.location + images.largePhotos.location));
+		.pipe(gulp.dest(dist.location + source.images.largePhotos.location));
 });
 
-gulp.task('tinyImages', function () {
-	gulp.src(images.location + 'src/' + images.content)
-		.pipe(tinypng(tinypngToken))
-		.pipe(gulp.dest(images.location));
+gulp.task('tinyPhotosSource', function () {
+	if (tinypngToken)
+		gulp.src(source.images.location + source.images.content)
+			.pipe(tinypng(tinypngToken))
+			.pipe(gulp.dest(source.images.location));
+	else
+		console.log('TinyPNG Token Required');
 });
 
-gulp.task('tinyLargePhotos', function () {
-	gulp.src(images.largePhotos.location + images.largePhotos.content)
-		.pipe(tinypng(tinypngToken))
-		.pipe(gulp.dest(images.largePhotos.location));
-});
+// SERVER
 
-gulp.task('tiny', ['tinyImages', 'tinyLargePhotos']);
-
-gulp.task('watch', function () {
-	gulp.watch(cssfiles, ['oai']);
-});
-
-gulp.task('oai-watch', ['oai'], function () {
-	browserSync.reload();
-});
-
-// Watch scss AND html files, doing different things with each.
-gulp.task('serve', ['oai'], function () {
+gulp.task('serve', function () {
 
 	// Serve files from the root of this project
 	browserSync.init({
 		server: {
-			baseDir: "./"
+			baseDir: "./public/",
+			index: "index.html",
+			routes: {
+				"/home": "./public/index.html"
+			}
 		}
 	});
 
-	gulp.watch(cssfiles, ['oai-watch']);
-	gulp.watch("*.html").on("change", browserSync.reload);
+	gulp.watch(source.index.content).on('change', browserSync.reload);
 
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['serve', 'css-watch', 'js-watch']);

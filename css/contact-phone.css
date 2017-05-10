@@ -30,26 +30,12 @@
 /* Contact Phone Item header */
 
 .ContactPhoneItem-header {
-	-webkit-align-items: center;
-	align-items: center;
-	background-color: #1e88e5;
-	border-bottom-left-radius: 8px;
-	border-top-left-radius: 8px;
-	color: #ffffff;
-	cursor: default;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	height: 6em;
-	-webkit-justify-content: center;
-	justify-content: center;
-	width: 6em;
+	display: none;
 }
 
 .ContactPhoneItem:hover .ContactPhoneItem-header {
-	background-color: #2196f3;
+	background-color: #c1c1c1;
+	color: #616161;
 }
 
 .ContactPhoneItem-header span {
@@ -72,11 +58,40 @@
 	background-color: #eeeeee;
 	padding: 0 0 0 1.5em;
 	height: 6em;
-	width: 24em;
+	width: 20em;
 }
 
 .ContactPhoneItem-number {
 	font-size: 1.5em;
 	font-weight: 600;
 	line-height: 1.48;
+}
+
+@media(min-width: 48em) {
+
+	.ContactPhoneItem-header {
+		-webkit-align-items: center;
+		align-items: center;
+		background-color: #e0e0e0;
+		border-bottom-left-radius: 8px;
+		border-top-left-radius: 8px;
+		color: #757575;
+		cursor: default;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		height: 6em;
+		-webkit-justify-content: center;
+		justify-content: center;
+		width: 6em;
+	}
+
+	.ContactPhoneItem-content {
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+		width: 24em;
+	}
+
 }

@@ -101,6 +101,12 @@ button::-moz-focus-inner {
 
 	.navbar .toggle {
 		display: block;
+		outline: none;
+	}
+
+	.navbar .toggle:hover,
+	.navbar .toggle:focus {
+		background-color: #50177c;
 	}
 
 	.navbar header {
@@ -128,10 +134,19 @@ button::-moz-focus-inner {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		width: 250px;
+		margin: 0 1.125em;
+		z-index: 3;
+		/*border-radius: 3px;*/
 	}
 
 	.navbar .show.menu a {
-		padding: 10px 25px;
+		text-align: right;
+	}
+
+	.navbar .show.menu .item,
+	.navbar .show.menu .item a {
+		width: 100%;
 	}
 
 	.navbar,

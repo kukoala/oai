@@ -1,0 +1,18 @@
+O azul meio #4583c5
+A amarelo meio #fbc040
+I lilás meio #a961b5
+
+ORIGINAL
+start #2e3193
+mid #1862b6
+end #0194d9
+
+AUTENTICO 
+start #f7941d
+mid #fbb90e
+end #ffdd00
+
+INTERATIVO
+start #3976bc
+mid #8742a7
+end #ea018d

@@ -21,7 +21,7 @@
 
 .CitiesBlock h3 {
   /*font-size: 3em;*/
-  font-weight: 300;
+  /*font-weight: 300;*/
 }
 
 /* Cities */
@@ -163,6 +163,7 @@
   -webkit-flex-flow: column;
   flex-flow: column;
   width: 16em;
+  padding: 0 1em;
   min-height: 8em;
   margin-bottom: 1.5em;
 }
@@ -246,7 +247,6 @@
   width: 100%;
   padding: 0 3.75em;
   margin: 1em 0 .5em;
-
 }
 
 .ContactForm-title span {
@@ -276,11 +276,6 @@
 
 /* Form Field */
 
-.ContactForm-field {
-  padding: 0 1.5em;
-  width: 100%;
-}
-
 .ContactFormFooter .ContactForm-field {
   width: auto;
 }
@@ -290,33 +285,33 @@
 }
 
 .ContactForm-field ::-webkit-input-placeholder {
-  color: #FFF;
+  color: #fff;
 }
 
 .ContactForm-field :-moz-placeholder {
-  color: #FFF;
+  color: #fff;
 }
 
 .ContactForm-field ::-moz-placeholder {
-  color: #FFF;
+  color: #fff;
 }
 
 .ContactForm-field :focus::-webkit-input-placeholder {
-  color: #FFF;
+  color: #fff;
 }
 
 .ContactForm-field :focus:-moz-placeholder {
-  color: #FFF;
+  color: #fff;
 }
 
 .ContactForm-field :focus::-moz-placeholder {
-  color: #FFF;
+  color: #fff;
 }
 
 .ContactForm-field input,
 .ContactForm-field label,
 .ContactForm-field textarea {
-  color: #FFF;
+  color: #fff;
   border: none;
   background: none;
   width: 100%;
@@ -364,7 +359,7 @@
 }
 
 .ContactForm-field label {
-  color: #FFF;
+  color: #fff;
   display: none;
   font-size: .75em;
   padding: 1.333333333em 0 0;
@@ -373,11 +368,10 @@
 .ContactForm-field textarea + label {
   order: 1;
   display: block;
-  color: #FFF;
 }
 
 .ContactForm-field textarea:focus + label {
-  color: #FFF;
+  color: #fff;
 }
 
 .ContactForm-field textarea {
@@ -445,7 +439,7 @@
 }
 
 .ContactForm-field .ContactForm-submit {
-  color: #FFF;
+  color: #fff;
   cursor: pointer;
   border: none;
   padding: .625em .5em;
@@ -457,9 +451,52 @@
 
 .ContactForm-field .ContactForm-submit:hover,
 .ContactForm-field .ContactForm-submit:focus {
-  background-color: #FFF;
+  background-color: #fff;
   color: #9c27b0;
   margin: .5em;
+}
+
+.ContactForm-checkbox {
+  margin: .5em 0;
+  width: 100%;
+}
+
+.ContactForm-checkbox input {
+  -ms-transform: scale(1.5, 1.5);
+  -moz-transform: scale(1.5, 1.5);
+  -webkit-transform: scale(1.5, 1.5);
+  -o-transform: scale(1.5, 1.5);
+  transform: scale(1.5, 1.5);
+  margin-left: .5em;
+  margin-right: 1em;
+  display: inline-block;
+  outline: none;
+}
+
+.ContactForm-checkbox label {
+  display: inline-block;
+}
+
+.ContactForm-checkbox input:focus + label {
+  text-decoration: underline;
+}
+
+.ContactForm-field--cpf {
+  height: 0;
+  opacity: 0;
+  transition: height 1.5s ease;
+}
+
+.ContactForm-field--cpf.is-true {
+  opacity: 1;
+  height: 5em;
+  -webkit-animation: show 1s ease 0s 1 normal;
+  animation: show 1s ease 0s 1 normal;
+}
+
+.ContactForm-field--cpf.is-true label {
+  order: 1;
+  display: inline-block;
 }
 
 @media (min-width: 72em) {
@@ -507,7 +544,7 @@
   }
 }
 
-@-moz-keyframes sendAnimation {
+@-moz-keyframes loadAnimation {
   0% {
     opacity: 1;
   }
@@ -532,6 +569,28 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    -webkit-transform: translateY(-.75em);
+    transform: translateY(-.75em);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes show {
+  0% {
+    transform: translateY(-.75em);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
 /* Contact Phone */
@@ -565,26 +624,11 @@
 /* Contact Phone Item header */
 
 .ContactPhoneItem-header {
-  -webkit-align-items: center;
-  align-items: center;
-  background-color: #eeeeee;
-  border-bottom-left-radius: 8px;
-  border-top-left-radius: 8px;
-  color: #757575;
-  cursor: default;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  height: 6em;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: 6em;
+  display: none;
 }
 
 .ContactPhoneItem:hover .ContactPhoneItem-header {
-  background-color: #e0e0e0;
+  background-color: #c1c1c1;
   color: #616161;
 }
 
@@ -608,13 +652,40 @@
   background-color: #eeeeee;
   padding: 0 0 0 1.5em;
   height: 6em;
-  width: 24em;
+  width: 20em;
 }
 
 .ContactPhoneItem-number {
   font-size: 1.5em;
   font-weight: 600;
   line-height: 1.48;
+}
+
+@media (min-width: 48em) {
+  .ContactPhoneItem-header {
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    color: #757575;
+    cursor: default;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    height: 6em;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 6em;
+  }
+
+  .ContactPhoneItem-content {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 24em;
+  }
 }
 /* Contact */
 
@@ -625,9 +696,9 @@
 /* Contact Methods */
 
 .ContactMethods h3 {
-  color: #FFF;
-  font-size: 3em;
-  margin: 0 0 .625em;
+  color: #fff;
+  /*font-size: 3em;*/
+  margin: 0;
 }
 
 /* Contact Methods Nav */
@@ -654,7 +725,7 @@
 
 .ContactMethodsNavItem {
   margin: 0 0 1em;
-  min-width: 12em;
+  /*min-width: 12em;*/
 }
 
 /* Contact Nav Item select area */
@@ -671,19 +742,19 @@
   display: flex;
   -webkit-flex-flow: column;
   flex-flow: column;
-  padding: 1.5em 0 1.3125em;
+  padding: 1em .5em 1.3125em;
   width: 100%;
 }
 
 .ContactMethodsNavItem-select-area.is-current {
-  /*background-color: #EEE;*/
+  /*background-color: #f5f5f5;*/
   -moz-box-shadow: inset 0 0 0 2px #eee;
   -webkit-box-shadow: inset 0 0 0 2px #eee;
   box-shadow: inset 0 0 0 2px #eee;
 }
 
 .ContactMethodsNavItem-select-area:hover {
-  background-color: #9c27b0;
+  background-color: #88229c;
 }
 
 /* Contact Nav Item icon */
@@ -691,9 +762,9 @@
 .ContactMethodsNavItem-icon {
   -webkit-align-items: center;
   align-items: center;
-  border: solid 2px #FFF;
+  border: solid 2px #fff;
   border-radius: 50%;
-  color: #FFF;
+  color: #fff;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -701,21 +772,21 @@
   display: flex;
   -webkit-justify-content: center;
   justify-content: center;
-  height: 3.75em;
+  height: 2.5em;
   margin: 0 0 1em;
-  width: 3.75em;
+  width: 2.5em;
 }
 
 .ContactMethodsNavItem-icon span {
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: 600;
 }
 
 /* Contact Nav Item title */
 
 .ContactMethodsNavItem-title {
-  color: #FFF;
-  font-size: 1.125em;
+  color: #fff;
+  font-size: 1em;
   font-weight: 600;
 }
 
@@ -754,24 +825,62 @@
 .ContactMethods-item--email.is-active {
   -webkit-align-items: center;
   align-items: center;
-  color: #FFF;
+  color: #fff;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  font-size: 3em;
+  /*font-size: 3em;*/
+  font-size: 2.5em;
   height: 100%;
   -webkit-justify-content: center;
   justify-content: center;
   width: 100%;
+}
+
+@media (min-width: 48em) {
+  .ContactMethods h3 {
+    margin: 0 0 .625em;
+  }
+
+  .ContactMethods-item--email.is-active {
+    font-size: 3em;
+  }
+
+  .ContactMethodsNavItem-select-area {
+    padding: 1.5em 0 1.3125em;
+  }
+
+  .ContactMethodsNavItem-icon {
+    height: 3.75em;
+    width: 3.75em;
+  }
+
+  .ContactMethodsNavItem-icon span {
+    font-size: 1.5em;
+  }
+
+  .ContactMethodsNavItem {
+    min-width: 10em;
+  }
+
+  .ContactMethodsNavItem-title {
+    font-size: 1.125em;
+  }
+}
+
+@media (min-width: 60em) {
+  .ContactMethodsNavItem {
+    min-width: 12em;
+  }
 }
 /* Dev Footer */
 
 .DevFooter {
   -webkit-align-items: center;
   align-items: center;
-  background-color: #4a148c;
+  background-color: #1565c0;
   color: #ffffff;
   display: -webkit-box;
   display: -moz-box;
@@ -800,15 +909,16 @@ h6 {
   font-weight: 400;
   margin-bottom: .75em;
   line-height: 1.36;
+  text-align: center;
 }
 
 h2 {
-  font-size: 4.5em;
+  font-size: 3em;
 }
 
 h3 {
   display: block;
-  font-size: 3.75em;
+  font-size: 2.5em;
   font-weight: 400;
   margin-bottom: .75em;
   line-height: 1.36;
@@ -819,6 +929,16 @@ p {
   font-weight: 300;
   line-height: 1.6;
   margin-bottom: 2.25em;
+}
+
+@media (min-width: 48em) {
+  h2 {
+    font-size: 4.25em;
+  }
+
+  h3 {
+    font-size: 3.75em;
+  }
 }
 /* Final Slogan */
 
@@ -1824,6 +1944,12 @@ button::-moz-focus-inner {
 @media (max-width: 48em) {
   .navbar .toggle {
     display: block;
+    outline: none;
+  }
+
+  .navbar .toggle:hover,
+  .navbar .toggle:focus {
+    background-color: #50177c;
   }
 
   .navbar header {
@@ -1851,10 +1977,19 @@ button::-moz-focus-inner {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 250px;
+    margin: 0 1.125em;
+    z-index: 3;
+    /*border-radius: 3px;*/
   }
 
   .navbar .show.menu a {
-    padding: 10px 25px;
+    text-align: right;
+  }
+
+  .navbar .show.menu .item,
+  .navbar .show.menu .item a {
+    width: 100%;
   }
 
   .navbar,
@@ -1913,7 +2048,7 @@ button::-moz-focus-inner {
   -webkit-justify-content: center;
   justify-content: center;
   max-width: 16em;
-  padding: 1.5em 1.5em 1em;
+  padding: 1.5em 1em 1em;
   text-align: center;
 }
 
@@ -2598,7 +2733,7 @@ html.is-loading .navbar {
 .navbar .item .link {
   font-size: 1em;
   font-weight: 500;
-  line-height: 3;
+  line-height: 2.5;
 }
 
 .navbar .item .link--button {
@@ -2663,9 +2798,20 @@ html.is-loading .navbar {
   margin: 0 0 0 .75em;
 }
 
+@media (min-width: 48em) {
+  .navbar .item .link {
+    line-height: 3;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar .brand {
     color: #558b2f;
+  }
+
+  .navbar .item .brand img,
+  .navbar .item .brand svg {
+    height: 4em;
   }
 
   #bg path {
@@ -2709,6 +2855,7 @@ html.is-loading .navbar {
   display: flex;
   -webkit-flex-flow: column;
   flex-flow: column;
+  background-color: rgba(0,0,0,.5);
 }
 
 .welcome h1,
@@ -2719,6 +2866,7 @@ html.is-loading .navbar {
 .welcome p {
   letter-spacing: 1pt;
   line-height: 1.6;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -2776,7 +2924,7 @@ html.is-loading .navbar {
 
 @media (min-width: 96em) {
   .welcome h1 {
-    font-size: 6em;
+    font-size: 5em;
   }
 }
 
@@ -2929,11 +3077,21 @@ body > footer .divisor {
 
 @media (max-width: 48em) {
   .navbar footer .show.menu {
-    border-color: #558b2f;
+    padding: .5em 0 1em;
+    border-color: #6A1B9A;
+  }
+
+  .navbar footer .show.menu .item a {
+    color: #fff !important;
+  }
+
+  .navbar footer .show.menu .item a#webmail-button {
+    margin-top: 5px;
+    border-color: #fff;
   }
 
   .navbar footer .menu {
-    background-color: #558b2f;
+    background-color: #6A1B9A;
     color: #FFF;
   }
 }
@@ -3036,3 +3194,46 @@ body > footer .divisor {
 	[1] http://practicaltypography.com/line-spacing.html
 	[2] http://practicaltypography.com/space-between-paragraphs.html
 */
+/* From html, compilation */
+
+.d-none {
+  display: none;
+}
+
+.footer-trademark {
+  font-size: .75em;
+  transform: translateY(-12px);
+}
+
+.office-hours {
+  max-width: 36em;
+  width: 100%;
+}
+
+.office-hours .office-hour {
+  border: solid 2px #fff;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 1em 0;
+  min-width: 12em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.office-hours .office-hour:hover {
+  background-color: #fff;
+  color: #9c27b0;
+}
+
+.office-hours .office-hour span {
+  width: 100%;
+  text-align: center;
+}
+
+.office-hours .office-hour .days {
+  font-size: 2.5em;
+}
+
+.office-hours-ps {
+  font-size: .875em;
+}

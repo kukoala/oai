@@ -1,5 +1,4 @@
 
-
 /* OAI Elements */
 
 h1,
@@ -12,15 +11,16 @@ h6 {
 	font-weight: 400;
 	margin-bottom: .75em;
 	line-height: 1.36;
+	text-align: center;
 }
 
 h2 {
-	font-size: 4.5em;
+	font-size: 3em;
 }
 
 h3 {
 	display: block;
-	font-size: 3.75em;
+	font-size: 2.5em;
 	font-weight: 400;
 	margin-bottom: .75em;
 	line-height: 1.36;
@@ -31,4 +31,16 @@ p {
 	font-weight: 300;
 	line-height: 1.6;
 	margin-bottom: 2.25em;
+}
+
+@media (min-width: 48em) {
+
+	h2 {
+		font-size: 4.25em;
+	}
+
+	h3 {
+		font-size: 3.75em;
+	}
+
 }

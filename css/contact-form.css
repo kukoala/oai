@@ -49,11 +49,6 @@
 
 /* Form Field */
 
-.ContactForm-field {
-	padding: 0 1.5em;
-	width: 100%;
-}
-
 .ContactFormFooter .ContactForm-field {
 	width: auto;
 }
@@ -63,33 +58,33 @@
 }
 
 .ContactForm-field ::-webkit-input-placeholder {
-	color: #607d8b;
+	color: #fff;
 }
 
 .ContactForm-field :-moz-placeholder {
-	color: #607d8b;
+	color: #fff;
 }
 
 .ContactForm-field ::-moz-placeholder {
-	color: #607d8b;
+	color: #fff;
 }
 
 .ContactForm-field :focus::-webkit-input-placeholder {
-	color: #b0bec5;
+	color: #fff;
 }
 
 .ContactForm-field :focus:-moz-placeholder {
-	color: #b0bec5;
+	color: #fff;
 }
 
 .ContactForm-field :focus::-moz-placeholder {
-	color: #b0bec5;
+	color: #fff;
 }
 
 .ContactForm-field input,
 .ContactForm-field label,
 .ContactForm-field textarea {
-	color: #4e342e;
+	color: #fff;
 	border: none;
 	background: none;
 	width: 100%;
@@ -112,7 +107,7 @@
 .ContactForm-field input:focus,
 .ContactForm-field textarea:focus {
 	border-bottom-width: 2px;
-	border-bottom-color: #00b8d4;
+	border-bottom-color: #4a148c;
 	margin-top: 0;
 }
 
@@ -137,7 +132,7 @@
 }
 
 .ContactForm-field label {
-	color: #00b8d4;
+	color: #fff;
 	display: none;
 	font-size: .75em;
 	padding: 1.333333333em 0 0;
@@ -149,7 +144,7 @@
 }
 
 .ContactForm-field textarea:focus + label {
-	color: #00b8d4;
+	color: #fff;
 }
 
 .ContactForm-field textarea {
@@ -217,7 +212,7 @@
 }
 
 .ContactForm-field .ContactForm-submit {
-	color: #00b8d4;
+	color: #fff;
 	cursor: pointer;
 	border: none;
 	padding: .625em .5em;
@@ -229,8 +224,52 @@
 
 .ContactForm-field .ContactForm-submit:hover,
 .ContactForm-field .ContactForm-submit:focus {
-	background-color: #e0e0e0;
+	background-color: #fff;
+	color: #9c27b0;
 	margin: .5em;
+}
+
+.ContactForm-checkbox {
+	margin: .5em 0;
+	width: 100%;
+}
+
+.ContactForm-checkbox input {
+	-ms-transform: scale(1.5, 1.5);
+	-moz-transform: scale(1.5, 1.5);
+	-webkit-transform: scale(1.5, 1.5);
+	-o-transform: scale(1.5, 1.5);
+	transform: scale(1.5, 1.5);
+	margin-left: .5em;
+	margin-right: 1em;
+	display: inline-block;
+	outline: none;
+}
+
+.ContactForm-checkbox label {
+	display: inline-block;
+}
+
+.ContactForm-checkbox input:focus + label {
+	text-decoration: underline;
+}
+
+.ContactForm-field--cpf {
+	height: 0;
+	opacity: 0;
+	transition: height 1.5s ease;
+}
+
+.ContactForm-field--cpf.is-true {
+	opacity: 1;
+	height: 5em;
+	-webkit-animation: show 1s ease 0s 1 normal;
+	animation: show 1s ease 0s 1 normal;
+}
+
+.ContactForm-field--cpf.is-true label {
+	order: 1;
+	display: inline-block;
 }
 
 @media (min-width: 72em) {
@@ -286,7 +325,7 @@
 
 }
 
-@-moz-keyframes sendAnimation {
+@-moz-keyframes loadAnimation {
 
 	0% {
 		opacity: 1;
@@ -316,4 +355,24 @@
 		opacity: 1;
 	}
 
+}
+
+@-webkit-keyframes show {
+	0%{
+		-webkit-transform: translateY(-.75em);
+		transform: translateY(-.75em);
+	}
+	100%{
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+}
+
+@keyframes show {
+	0%{
+		transform: translateY(-.75em);
+	}
+	100%{
+		transform: translateY(0);
+	}
 }

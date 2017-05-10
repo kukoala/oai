@@ -4,8 +4,8 @@
 <title>OAI Telecom | Conectando Pessoas</title>
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-<!--<link rel='shortcut icon' type='image/ico' href='favicon.ico'>-->
-<link rel='shortcut icon' type='image/png' href='favicon.png'>
+<link rel='shortcut icon' type='image/ico' href='favicon.ico'>
+<!--<link rel='shortcut icon' type='image/png' href='favicon.png'>-->
 <!--<link rel='fluid-icon' type='image/png' href='icon.png'>-->
 
 <script src="dist/js/villa.min.js"></script>
@@ -1036,7 +1036,7 @@
 							</div>
 
 							<div class="ContactForm-checkbox">
-								<input class="client-check" type="checkbox" name="cClient" id="cClient" onClick="toggle()"/>
+								<input class="client-check" type="checkbox" name="cClient" id="cClient"/>
 								<label class="client" for="cClient">Sou assinante OAI Telecom</label>
 							</div>
 
@@ -1094,15 +1094,19 @@
 
 							<div class="ContactFormFooter">
 
-								<div class="ContactFormStatus">
+								<div id="cForm-feedback" class="ContactFormStatus">
 
 									<span class="ContactFormStatus-text ContactFormStatus-text--sending font-white">Enviando...</span>
 
-									<span class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700">Enviado com sucesso!</span>
+									<span class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700">Mensagem enviada!</span>
 
-									<span class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700">Não foi possível enviar, verifique os campos e tente novamente</span>
+									<span class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700">Não foi possível enviar.</span>
 
-									<span class="ContactFormStatus-text ContactFormStatus-text--fail font-red-a700">Houve algum problema, tentando novamente...</span>
+									<span class="ContactFormStatus-text ContactFormStatus-text--fail font-orange-a700">Houve uma falha no envio.</span>
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--incomplete">Preencha todos os campos.</span>
+
+									<span id="cForm-invalid" class="ContactFormStatus-text ContactFormStatus-text--invalid">Informe seu CPF corretamente.</span>
 
 								</div>
 
@@ -1201,6 +1205,16 @@
 		});
 
 	};
+
+	var contact = new Contact(
+		document.getElementById('cForm'),
+		document.getElementById('cForm-invalid'),
+		{
+			url: 'https://service.elbit.com.br/venus/api/index.php'
+		}
+	);
+
+	contact.init();
 
 </script>
 

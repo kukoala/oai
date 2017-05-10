@@ -66,6 +66,284 @@ var ContactMethods = (function() {
 })();
 
 /*!
+ * Elbit Contact v2.0.0 (http://elbit.com.br/)
+ * Copyright 2016-2017 Elbit Digital Developers
+ * Licensed under MIT (https://github.com/elbitdigital/base/blob/master/LICENSE)
+ */
+
+/**
+ * Constructor of Contact
+ * Needs of jQuery Ajax (>1.11.3)
+ * @param viewport
+ * @param feedback
+ * @param options
+ * @constructor menu
+ */
+function Contact(viewport, feedback, options) {
+
+	var self = this;
+
+	this.viewport = viewport;
+	this.feedback = feedback;
+
+	this.url = !!options.url ? options.url : false;
+
+	this.data = {};
+
+	this.fields = {};
+
+	this.tries = 0;
+	this.maxTries = 3;
+
+	this.clickCtrl = function(e) {
+
+		self.initResponse(this);
+		e.preventDefault();
+
+	};
+
+	this.states = [
+		'is-error',
+		'is-fail',
+		'is-sending',
+		'is-success',
+		'is-incomplete',
+		'is-invalid'
+	];
+
+	this.changeState = function (param) {
+
+		/**
+		 * @param [state, message]
+		 */
+
+		if (this.viewport) {
+
+			for (var i = this.states.length; i--; )
+				this.viewport.classList.remove(this.states[i])
+
+			this.viewport.classList.add(param.state);
+
+			if (param.message)
+				this.feedback.innerText = param.message;
+				// this.feedback.innerHTML = "<span class='ContactFormStatus-text ContactFormStatus-text--invalid'>" + param.message +  "</span>";
+
+		}
+
+	};
+
+	this.asyncSuccessCtrl = function(data) {
+
+		if (data.sent)
+			self.showSuccessMessage();
+		else
+			self.showFailMessage();
+
+	};
+
+	this.asyncErrorCtrl = function(data) {
+
+		this.tries = this.tries + 1;
+
+		if(this.tries <= this.maxTries)
+			self.retry(this.tries);
+		else
+			self.showErrorMessage();
+
+	};
+
+}
+
+
+
+Contact.prototype.showSuccessMessage = function() {
+
+	// console.log('enviado');
+	this.changeState({state: 'is-success'});
+	this.submit.disabled = true;
+
+};
+
+Contact.prototype.showFailMessage = function() {
+
+	// console.log('completou, mas ocorreu uma falha');
+	this.changeState({state: 'is-fail'});
+
+};
+
+Contact.prototype.showErrorMessage = function() {
+
+	this.changeState({state: 'is-error'});
+
+};
+
+Contact.prototype.showRequiredMessage = function(mailError) {
+
+	if (mailError) {
+
+		document.querySelectorAll('.email-text')[0].focus();
+
+		this.changeState({state: 'is-invalid', message: 'E-mail preenchido incorretamente'});
+
+	} else {
+
+		this.changeState({state: 'is-invalid', message: 'Preencha todos os campos'});
+
+	}
+
+};
+
+Contact.prototype.send = function() {
+
+	// console.log('enviando');
+	this.changeState({state: 'is-sending'});
+
+	$.ajax({
+		url: this.url,
+		type: 'jsonp',
+		cache: false,
+		data: this.data,
+		method: 'get',
+		timeout: 30000,
+		success: this.asyncSuccessCtrl,
+		error: this.asyncErrorCtrl
+	});
+
+};
+
+Contact.prototype.retry = function(tries) {
+
+	// console.log('tentando enviar novamente');
+
+	$.ajax({
+		url: this.url,
+		type: 'jsonp',
+		cache: false,
+		data: this.data,
+		method: 'get',
+		timeout: 30000,
+		success: this.asyncSuccessCtrl,
+		error: this.asyncErrorCtrl
+	});
+
+};
+
+Contact.prototype.initSend = function() {
+
+	this.send();
+
+};
+
+Contact.prototype.loadTextFieldValue = function(element) {
+
+	return element ? element.value : false;
+
+};
+
+Contact.prototype.loadFieldsData = function(initSend) {
+
+	this.data.name = this.loadTextFieldValue(this.fields.name);
+	this.data.client = this.loadTextFieldValue(this.fields.client);
+	this.data.cpf = this.loadTextFieldValue(this.fields.cpf);
+	this.data.phone = this.loadTextFieldValue(this.fields.phone);
+	this.data.email = this.loadTextFieldValue(this.fields.email);
+	this.data.address = this.loadTextFieldValue(this.fields.address);
+	this.data.city = this.loadTextFieldValue(this.fields.city);
+	this.data.message = this.loadTextFieldValue(this.fields.message);
+
+	if (initSend) this.initSend();
+
+};
+
+Contact.prototype.validateTextField = function(element) {
+
+	return element ? element.value !== '' : false;
+
+};
+
+Contact.prototype.validateFields = function() {
+
+	return !(!this.validateTextField(this.fields.name)
+	// || !this.validateTextField(this.fields.client)
+	// || !this.validateTextField(this.fields.cpf)
+	|| !this.validateTextField(this.fields.phone)
+	|| !this.validateTextField(this.fields.email)
+	|| !this.validateTextField(this.fields.address)
+	|| !this.validateTextField(this.fields.city)
+	|| !this.validateTextField(this.fields.message));
+
+};
+
+Contact.prototype.initResponse = function(event) {
+
+	if (this.validateFields()) {
+		if (this.fields.email.validity) {
+			if (this.fields.email.validity.valid) {
+				if (this.fields.client.checked) {
+					if (this.validateTextField(this.fields.cpf)) {
+						if (this.fields.cpf.value.length == 11) {
+							this.loadFieldsData(true);
+						} else {
+							this.changeState({state: 'is-invalid', message: 'Seu CPF deve conter 11 números.'});
+						}
+					} else {
+						this.changeState({state: 'is-invalid', message: 'Se você já é cliente OAI, precisa informar seu CPF.'});
+					}
+				} else {
+					this.loadFieldsData(true);
+				}
+			} else {
+				this.showRequiredMessage(true);
+			}
+		} else {
+			//validate only if it have validity object (supports email input type)
+			this.loadFieldsData(true);
+		}
+	} else {
+		this.showRequiredMessage(false);
+	}
+
+};
+
+Contact.prototype.addListeners = function() {
+
+	addListener({
+		element: this.submit,
+		type: 'click',
+		crossType: 'onclick',
+		listener: this.clickCtrl
+	});
+
+};
+
+Contact.prototype.getFields = function() {
+
+	// this.fields.name = document.getElementById('cNome');
+	// this.fields.mail = document.getElementById('cEmail');
+	// this.fields.message = document.getElementById('cMensagem');
+	// this.submit = document.getElementById('cSubmit');
+
+	this.fields.name = document.getElementById('cName');
+	this.fields.client = document.getElementById('cClient');
+	this.fields.cpf = document.getElementById('cCpf');
+	this.fields.phone = document.getElementById('cPhone');
+	this.fields.email = document.getElementById('cEmail');
+	this.fields.address = document.getElementById('cAddress');
+	this.fields.city = document.getElementById('cCity');
+	this.fields.message = document.getElementById('cMessage');
+
+	this.submit = document.getElementById('cSubmit');
+
+	this.addListeners();
+
+};
+
+Contact.prototype.init = function() {
+
+	this.getFields();
+
+};
+/*!
  * Mowe Webtal Project v1.0.0 (http://gomowe.org/)
  * Copyright 2013-2015 Noibe Developers
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
@@ -264,6 +542,29 @@ jQuery.fn.removeClassLike = function (prefix) {
 	});
 	return this.attr("class", classes.join(" "));
 };
+/*!
+ * Mowe Functions v1.0.0 (http://letsmowe.com/)
+ * Copyright 2013-2016 Kabana's Info Developers
+ * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
+ */
+
+/**
+ * Add event listeners to element
+ * @param param
+ */
+function addListener(param) {
+
+	var el = param.element;
+	var t = param.type;
+	var ct = param.crossType;
+	var l = param.listener;
+	var uc = param.uc;
+
+	if (window.addEventListener)
+		el.addEventListener(t, l, !!uc);
+	else el.attachEvent(ct ? ct : t, l);
+
+}
 
 /* START - INITIALIZERS */
 
@@ -337,166 +638,5 @@ addEvent(
 		(c.checked) ? f.add('is-true') : f.remove('is-true');
 	}
 );
-
-/* MODULE */
-/* Contact form data manipulation */
-
-var formSentCount = 0;
-var formSentCountLimit = 2;
-
-var requestURL = 'http://mailman.letsmowe.com/oai/';
-
-var formLocked = false;
-
-var form = {
-	viewport: document.getElementById('cForm')
-};
-
-form.fields = {};
-form.sendButton = {};
-
-form.fields.cName = document.getElementById('cName');
-form.fields.cClient = document.getElementById('cClient');
-form.fields.cCpf = document.getElementById('cCpf');
-form.fields.cPhone = document.getElementById('cPhone');
-form.fields.cEmail = document.getElementById('cEmail');
-form.fields.cAddress = document.getElementById('cAddress');
-form.fields.cCity = document.getElementById('cCity');
-form.fields.cMessage = document.getElementById('cMessage');
-
-form.sendButton.viewport = document.getElementById('cSubmit');
-
-form.states = [
-	'is-error',
-	'is-fail',
-	'is-sending',
-	'is-success'
-];
-
-form.changeState = function (state) {
-
-	if (form.viewport) {
-
-		for (var i = form.states.length; i--; )
-			form.viewport.classList.remove(form.states[i])
-
-		form.viewport.classList.add(state);
-
-	}
-
-};
-
-// send the ajax request
-form.sendRequest = function(requestData) {
-
-	if (requestData) {
-
-		// ajax request
-		$.ajax({
-			cache: false,
-			crossDomain: true,
-			data: requestData,
-			method: 'get',
-			beforeSend: function() {
-
-				formLocked = true;
-				form.changeState('is-sending');
-
-			},
-			error: function (data) {
-
-				console.log(data);
-
-				form.changeState('is-fail');
-				form.send(requestData, 5000);
-
-			},
-			success: function (data) {
-
-				console.log(data);
-
-				if (data.sent)
-					form.changeState('is-success');
-				else
-					form.changeState('is-error');
-
-				formLocked = false;
-
-			},
-			timeout: 12000,
-			url: requestURL
-		});
-
-	}
-
-};
-
-// control the time delay to init the ajax request
-form.send = function(requestData, delay) {
-
-	if (requestData) {
-
-		if (delay) {
-
-			setTimeout(function() {
-
-				form.sendRequest(requestData);
-
-			}, delay)
-
-		} else {
-
-			form.sendRequest(requestData);
-
-		}
-
-	}
-
-};
-
-// form submit button listener
-form.sendButton.viewport.addEventListener('click', function (ev) {
-
-	ev.preventDefault();
-
-	if (!formLocked) {
-
-		if (formSentCount < formSentCountLimit) {
-
-			var allow = !!(form.fields.cName.value && (form.fields.cPhone.value || form.fields.cEmail.value) && (form.fields.cAddress.value || form.fields.cCity.value) && form.fields.cMessage.value);
-
-			if (allow) {
-
-				// lock the form
-				formLocked = true;
-
-				// count the request
-				formSentCount++;
-
-				// get object data
-				var requestData = {
-					cName: form.fields.cName.value,
-					cPhone: form.fields.cPhone.value,
-					cEmail: form.fields.cEmail.value,
-					cAddress: form.fields.cAddress.value,
-					cCity: form.fields.cCity.value,
-					cMessage: form.fields.cMessage.value
-				};
-
-				// send
-				form.send(requestData, false);
-
-
-			} else {
-
-				form.changeState('is-error');
-
-			}
-
-		}
-
-	}
-
-});
 
 /* END - MODULES */

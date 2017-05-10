@@ -177,7 +177,6 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	height: 100%;
 	padding: 0 1em;
 }
 
@@ -185,7 +184,7 @@
 
 .ContactFormStatus-text {
 	display: none;
-	font-size: .875em;
+	/*font-size: .875em;*/
 	font-weight: 900;
 	letter-spacing: -.5pt;
 }
@@ -193,7 +192,9 @@
 .ContactForm.is-success .ContactFormStatus-text--success,
 .ContactForm.is-sending .ContactFormStatus-text--sending,
 .ContactForm.is-error .ContactFormStatus-text--error,
-.ContactForm.is-fail .ContactFormStatus-text--fail {
+.ContactForm.is-fail .ContactFormStatus-text--fail,
+.ContactForm.is-incomplete .ContactFormStatus-text--incomplete,
+.ContactForm.is-invalid .ContactFormStatus-text--invalid {
 	-webkit-align-items: center;
 	align-items: center;
 	display: -webkit-box;
@@ -222,6 +223,13 @@
 	font-weight: 600;
 	text-transform: uppercase;
 	width: 6em;
+}
+
+.ContactForm-field .ContactForm-submit:disabled,
+.ContactForm-field .ContactForm-submit:disabled:hover {
+	background-color: #bdbdbd;
+	color: #858585;
+	cursor: not-allowed;
 }
 
 .ContactForm-field .ContactForm-submit:hover,
@@ -257,12 +265,18 @@
 }
 
 .ContactForm-field--cpf {
+	display: none;
 	height: 0;
 	opacity: 0;
 	transition: height 1.5s ease;
 }
 
 .ContactForm-field--cpf.is-true {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 	opacity: 1;
 	height: 5em;
 	-webkit-animation: show 1s ease 0s 1 normal;

@@ -5,8 +5,6 @@
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <link rel='shortcut icon' type='image/ico' href='favicon.ico'>
-<!--<link rel='shortcut icon' type='image/png' href='favicon.png'>-->
-<!--<link rel='fluid-icon' type='image/png' href='icon.png'>-->
 
 <script src="dist/js/villa.min.js"></script>
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
@@ -31,7 +29,7 @@
 
 </script>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl0t268IuAkd-rs9ntGzCQqmFUlMuuavg"></script>
 <script type="text/javascript">
 
 	var map;
@@ -125,19 +123,19 @@
 
 			<div id="menu" class="menu bg-sm font-purple-500">
 				<div class="item">
-					<a href="#sobre" class="link hfont-purple-100">Sobre</a>
+					<a href="#sobre" class="link hfont-purple-100 trigger-scroll" data-target="sobre">Sobre</a>
 				</div>
 				<div class="item">
-					<a href="#planos" class="link hfont-purple-100">Planos</a>
+					<a href="#planos" class="link hfont-purple-100 trigger-scroll" data-target="planos">Planos</a>
 				</div>
 				<div class="item">
-					<a href="#cidades" class="link hfont-purple-100">Cidades</a>
+					<a href="#cidades" class="link hfont-purple-100 trigger-scroll" data-target="cidades">Cidades</a>
 				</div>
 				<div class="item">
-					<a href="#testador" class="link hfont-purple-100">Testador</a>
+					<a href="#testador" class="link hfont-purple-100 trigger-scroll" data-target="testador">Testador</a>
 				</div>
 				<div class="item">
-					<a href="#contato" class="link font-purple-700 hfont-purple-100">
+					<a href="#contato" class="link font-purple-700 hfont-purple-100 trigger-scroll" data-target="contato">
 						<strong>Contato</strong>
 					</a>
 				</div>
@@ -504,7 +502,7 @@
 
 	<div class="PricesMore">
 
-		<a href="#contato" class="PricesMore-select-area">
+		<a href="#contato" class="PricesMore-select-area trigger-scroll" data-target="contato">
 
 			<span>Entre em contato para obter planos exclusivos!</span>
 
@@ -1208,13 +1206,25 @@
 
 	var contact = new Contact(
 		document.getElementById('cForm'),
-		document.getElementById('cForm-invalid'),
-		{
-			url: 'https://service.elbit.com.br/venus/api/index.php'
+		document.getElementById('cForm-invalid'), {
+			url: 'https://service.elbit.com.br/mailman/oai/index.php'
 		}
 	);
-
 	contact.init();
+
+	var smothScrolls = [];
+	smothScrolls.triggers = document.querySelectorAll('.trigger-scroll');
+	for(var i = 0; i < smothScrolls.triggers.length; i++) {
+		var el = [];
+		if (!(el = document.querySelector(smothScrolls.triggers[i].hash)))
+			el = document.getElementById(smothScrolls.triggers[i].dataset.target);
+		smothScrolls[i] = new Anchor(el, {
+			duration: 500,
+			easing: 'easeinQuad',
+			defaultBehavior: true,
+			trigger: smothScrolls.triggers[i]
+		});
+	}
 
 </script>
 

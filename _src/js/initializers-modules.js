@@ -9,7 +9,7 @@ var contactMethods = new ContactMethods(document.getElementById('contact-methods
 contactMethods.init();
 
 /* Tawk chat initialization */
-var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/591288d464f23d19a89b1743/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+// var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/591288d464f23d19a89b1743/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
 
 /* END - INITIALIZERS */
 
@@ -67,8 +67,9 @@ addEvent(
 	'click',
 	function () {
 		var c = document.getElementById('cClient');
-		var f = document.getElementById('fCpf').classList;
-		(c.checked) ? f.add('is-true') : f.remove('is-true');
+		var f = document.getElementById('fCpf');
+		document.getElementById('cCpf').value = "";
+		(c.checked) ? f.classList.add('is-true') : f.classList.remove('is-true');
 	}
 );
 

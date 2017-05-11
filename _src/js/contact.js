@@ -169,6 +169,9 @@ Contact.prototype.initSend = function() {
 
 Contact.prototype.loadTextFieldValue = function(element) {
 
+	if (element == this.fields.client)
+		return element.checked;
+
 	return element ? element.value : false;
 
 };

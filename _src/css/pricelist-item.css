@@ -82,7 +82,8 @@
 }
 
 .Pricelist.hidden-price .PricelistItem-title span {
-	font-size: 2.25em
+	/*font-size: 2.25em*/
+	font-size: 2em;
 }
 
 .PricelistItem:hover .PricelistItem-title,

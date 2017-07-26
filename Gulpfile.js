@@ -166,7 +166,8 @@ gulp.task('serve', function () {
 			routes: {
 				"/home": "./public/index.html"
 			}
-		}
+		},
+		ghostMode: false
 	});
 
 	gulp.watch(source.index.content).on('change', browserSync.reload);

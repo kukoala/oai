@@ -94,6 +94,16 @@
 	align-items: center;
 }
 
+.hero-subtitle {
+
+	font-size: 1.6em;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 2.25em;
+	font-weight: 300;
+
+}
+
 .hero .container {
 	margin-bottom: 0;
 	/*align-items: center;*/
@@ -101,8 +111,9 @@
 
 .hero .welcome {
 	/*align-self: flex-start;*/
-	text-align: center;
+	margin: 0 auto;
 	padding: 1em;
+	text-align: center;
 	width: 100%;
 }
 
@@ -255,9 +266,9 @@
 
 @media (min-width: 60em) {
 
-	.welcome {
-		margin: 0 0 0 -2em;
-	}
+	/*.welcome {*/
+		/*margin: 0 0 0 -2em;*/
+	/*}*/
 
 	.hero .promo #promo01 p {
 		font-size: 1em;

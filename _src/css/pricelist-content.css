@@ -10,7 +10,6 @@
 }
 
 
-
 .PricelistContent {
 	display: none;
 }
@@ -29,7 +28,7 @@
 @media (min-width: 60em) {
 
 	.PricelistContent {
-		flex-wrap: nowrap;
+		/*flex-wrap: nowrap;*/
 	}
 
 }

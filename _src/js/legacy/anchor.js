@@ -38,11 +38,10 @@ var Anchor = (function () {
 			self.destinationPosition = self.getDestinationPosition();
 
 			self.animate();
-
 		};
 
 		this.defaultFunction = function (e) {
-			document.activeElement.blur();
+			// document.activeElement.blur();
 			e.preventDefault();
 			self.push();
 		};

@@ -1122,6 +1122,14 @@ p {
   align-items: center;
 }
 
+.hero-subtitle {
+  font-size: 1.6em;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 2.25em;
+  font-weight: 300;
+}
+
 .hero .container {
   margin-bottom: 0;
   /*align-items: center;*/
@@ -1129,8 +1137,9 @@ p {
 
 .hero .welcome {
   /*align-self: flex-start;*/
-  text-align: center;
+  margin: 0 auto;
   padding: 1em;
+  text-align: center;
   width: 100%;
 }
 
@@ -1280,9 +1289,11 @@ p {
 }
 
 @media (min-width: 60em) {
-  .welcome {
-    margin: 0 0 0 -2em;
-  }
+  /*.welcome {*/
+
+  /*margin: 0 0 0 -2em;*/
+
+  /*}*/
 
   .hero .promo #promo01 p {
     font-size: 1em;
@@ -2085,7 +2096,7 @@ button::-moz-focus-inner {
 
 @media (min-width: 60em) {
   .PricelistContent {
-    flex-wrap: nowrap;
+    /*flex-wrap: nowrap;*/
   }
 }
 /* Pricelist Item */
@@ -2166,7 +2177,8 @@ button::-moz-focus-inner {
 }
 
 .Pricelist.hidden-price .PricelistItem-title span {
-  font-size: 2.25em;
+  /*font-size: 2.25em*/
+  font-size: 2em;
 }
 
 .PricelistItem:hover .PricelistItem-title,
@@ -2780,6 +2792,22 @@ html.is-loading .navbar {
   min-height: 6em;
   /*padding: .875em 0 .625em;*/
   padding: 1em 0 1.175em;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all .4s ease;
+  -moz-transition: all .4s ease;
+  -ms-transition: all .4s ease;
+  -o-transition: all .4s ease;
+  transition: all .4s ease;
+  z-index: 5;
+}
+
+.navbar-fixed .hero {
+  margin-top: 6em;
+}
+
+.navbar-fixed {
+  position: relative;
 }
 
 .navbar .item a {
@@ -2821,15 +2849,13 @@ html.is-loading .navbar {
 }
 
 .navbar .item .brand {
+  display: block;
   padding: 0;
-}
-
-.navbar .item .brand {
-  -webkit-transition: transform .4s;
-  -moz-transition: transform .4s;
-  -ms-transition: transform .4s;
-  -o-transition: transform .4s;
-  transition: transform .4s;
+  -webkit-transition: transform .4s ease;
+  -moz-transition: transform .4s ease;
+  -ms-transition: transform .4s ease;
+  -o-transition: transform .4s ease;
+  transition: transform .4s ease;
 }
 
 .navbar .item .brand:hover,
@@ -2841,10 +2867,13 @@ html.is-loading .navbar {
   transform: scale(1.1);
 }
 
+.navbar .item .brand-shrink {
+  display: none;
+}
+
 .navbar .item .brand img,
 .navbar .item .brand svg {
-  display: block;
-  height: 6em;
+  height: 4em;
 }
 
 .brand .slogan {
@@ -2861,18 +2890,27 @@ html.is-loading .navbar {
   }
 }
 
-@media (max-width: 768px) {
-  .navbar .brand {
-    color: #558b2f;
-  }
-
+@media (min-width: 60em) {
   .navbar .item .brand img,
   .navbar .item .brand svg {
+    height: 6em;
+  }
+
+  .navbar.is-fixed .item .brand {
+    display: none;
+  }
+
+  .navbar.is-fixed .item .brand-shrink {
+    display: block;
+  }
+
+  .navbar.is-fixed .item .brand-shrink img,
+  .navbar.is-fixed .item .brand-shrink svg {
     height: 4em;
   }
 
-  #bg path {
-    stroke: #cddc39 !important;
+  .navbar.is-fixed {
+    padding: 0;
   }
 }
 
@@ -2912,7 +2950,7 @@ html.is-loading .navbar {
   display: flex;
   -webkit-flex-flow: column;
   flex-flow: column;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0,0,0,.7);
 }
 
 .welcome h1,
@@ -2923,8 +2961,9 @@ html.is-loading .navbar {
 .welcome p {
   letter-spacing: 1pt;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
+  margin-bottom: 0;
 }
 
 .welcome h1 {
@@ -3125,12 +3164,17 @@ body > footer .divisor {
   }
 }
 
-#about .photo {
-  display: block;
-  background-image: url("../dist/img/mac02.jpg");
-  background-position: center;
-  min-height: 18em;
-}
+/*#about .photo {*/
+
+/*display: block;*/
+
+/*background-image: url("../dist/img/mac02.jpg");*/
+
+/*background-position: center;*/
+
+/*min-height: 18em;*/
+
+/*}*/
 
 @media (max-width: 48em) {
   .navbar footer .show.menu {

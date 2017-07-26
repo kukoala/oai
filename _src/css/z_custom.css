@@ -147,6 +147,22 @@
 	min-height: 6em;
 	/*padding: .875em 0 .625em;*/
 	padding: 1em 0 1.175em;
+	position: fixed;
+	top: 0;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+	z-index: 5;
+}
+
+.navbar-fixed .hero {
+	margin-top: 6em;
+}
+
+.navbar-fixed {
+	position: relative;
 }
 
 .navbar .item a {
@@ -176,11 +192,11 @@
 
 .navbar .item .link--button:active,
 .navbar .item .link--button:focus {
-  background-color: #9c27b0;
+	background-color: #9c27b0;
 }
  
 .navbar .item .link--button:hover {
-  background-color: #9c27b0;
+	background-color: #9c27b0;
 }
 
 .navbar .item .link strong {
@@ -188,15 +204,13 @@
 }
 
 .navbar .item .brand {
+	display: block;
 	padding: 0;
-}
-
-.navbar .item .brand {
-	-webkit-transition: transform .4s;
-	-moz-transition: transform .4s;
-	-ms-transition: transform .4s;
-	-o-transition: transform .4s;
-	transition: transform .4s;
+	-webkit-transition: transform .4s ease;
+	-moz-transition: transform .4s ease;
+	-ms-transition: transform .4s ease;
+	-o-transition: transform .4s ease;
+	transition: transform .4s ease;
 }
 
 .navbar .item .brand:hover,
@@ -208,10 +222,13 @@
 	transform: scale(1.1);
 }
 
+.navbar .item .brand-shrink {
+	display: none;
+}
+
 .navbar .item .brand img,
 .navbar .item .brand svg {
-	display: block;
-	height: 6em;
+	height: 4em;
 }
 
 .brand .slogan {
@@ -230,19 +247,28 @@
 
 }
 
-@media (max-width: 768px) {
-
-	.navbar .brand {
-		color: #558b2f;
-	}
+@media (min-width: 60em) {
 
 	.navbar .item .brand img,
 	.navbar .item .brand svg {
+		height: 6em;
+	}
+
+	.navbar.is-fixed .item .brand {
+		display: none;
+	}
+
+	.navbar.is-fixed .item .brand-shrink {
+		display: block;
+	}
+
+	.navbar.is-fixed .item .brand-shrink img,
+	.navbar.is-fixed .item .brand-shrink svg {
 		height: 4em;
 	}
 
-	#bg path {
-		stroke: #cddc39 !important;
+	.navbar.is-fixed {
+		padding: 0;
 	}
 
 }
@@ -273,8 +299,6 @@
 	stroke-miterlimit: 10;
 }
 
-
-
 .welcome {
 	display: -webkit-box;
 	-webkit-align-items: center;
@@ -285,7 +309,7 @@
 	display: flex;
 	-webkit-flex-flow: column;
 	flex-flow: column;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.7);
 }
 
 .welcome h1,
@@ -296,8 +320,9 @@
 .welcome p {
 	letter-spacing: 1pt;
 	line-height: 1.6;
-	font-weight: 500;
+	font-weight: 600;
 	text-transform: uppercase;
+	margin-bottom: 0;
 }
 
 .welcome h1 {
@@ -512,12 +537,12 @@ body > footer .divisor {
 
 }
 
-#about .photo {
-	display: block;
-	background-image: url("../dist/img/mac02.jpg");
-	background-position: center;
-	min-height: 18em;
-}
+/*#about .photo {*/
+	/*display: block;*/
+	/*background-image: url("../dist/img/mac02.jpg");*/
+	/*background-position: center;*/
+	/*min-height: 18em;*/
+/*}*/
 
 @media (max-width: 48em) {
 
